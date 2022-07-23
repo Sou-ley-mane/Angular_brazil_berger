@@ -1,0 +1,20 @@
+{
+    "lesMenu": [{
+            "nomProduit": "menu simple",
+            "image": "assets/sandwich.jpg",
+            "prix": "3000"
+        },
+        {
+            "nomProduit": "menu simple",
+            "image": "assets/sandwich.jpg",
+            "prix": "3000"
+        },
+        {
+            "nomProduit": "menu simple",
+            "image": "assets/sandwich.jpg",
+            "prix": "3000"
+        }
+    ]
+
+
+}

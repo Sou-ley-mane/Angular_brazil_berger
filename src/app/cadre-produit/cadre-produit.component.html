@@ -1,0 +1,27 @@
+<div class="container ">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-1">
+        <div class="card mx-2" style="width: 18rem;" *ngFor="let book of burger">
+            <a routerLink="/detail/{{book.id}}"><img src="{{book.image}}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{book.nomProduit}}</h5>
+                <p class="card-text">{{book.prix}}</p>
+                <a routerLink="/detail/{{book.id}}" class="btn btn-warning">Detail</a>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<h4 class="text-center">LES MENU DE QUALITE !!!</h4>
+<hr>
+<div class="container ">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-1">
+        <div class="card mx-2" style="width: 18rem;" *ngFor="let book of menu">
+            <a routerLink="/detail/{{book.id}}"><img src="{{book.image}}" class="card-img-top" alt="..."></a>
+            <div class="card-body">
+                <h5 class="card-title">{{book.nomProduit}}</h5>
+                <p class="card-text">{{book.prix}}</p>
+                <a routerLink="/detail/{{book.id}}" class="btn btn-warning">Detail</a>
+            </div>
+        </div>
+    </div>
+</div>
