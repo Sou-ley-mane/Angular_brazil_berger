@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IBurger } from '../burger/burger';
 import { IMenu } from '../menu/IMenu';
 import { CatalogueService } from '../service/catalogue.service';
 
@@ -8,21 +9,16 @@ import { CatalogueService } from '../service/catalogue.service';
   styleUrls: ['./cadre-produit.component.css']
 })
 export class CadreProduitComponent implements OnInit {
-  menu!:IMenu[];
-  burger!:IMenu[];
-  constructor(private catalogue:CatalogueService) { }
+ @Input() lesMenus!:IMenu[];
+ @Input() lesBurgers!:IBurger[];
 
+
+  constructor() { }
   ngOnInit(): void {
-    this.lesDonnees();
-  }
-  lesDonnees(){
     
-      this.menu=this.catalogue.getDonnees();
-      this.burger=this.catalogue.getBurger();
-  
-      console.log(this.menu);
-      
-      
-     
-    }
+    // console.log(this.lesMenus);
+    
+  }
+
+ 
 }

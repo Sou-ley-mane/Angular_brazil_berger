@@ -33,6 +33,30 @@ private buger!:IBurger;
     "image": "assets/menu.jpeg",
     "prix": 3000
  },
+    {
+      "id":1,
+      "nomProduit": "menu simple",
+      "image": "assets/menu.jpeg",
+      "prix": 3000
+   },
+    {
+      "id":2,
+      "nomProduit": "menu simple",
+      "image": "assets/menu.jpeg",
+      "prix": 3000
+   },
+  {
+    "id":3,
+      "nomProduit": "menu simple",
+      "image": "assets/menu.jpeg",
+      "prix": 3000
+   },
+   {
+    "id":4,
+    "nomProduit": "menu simple",
+    "image": "assets/menu.jpeg",
+    "prix": 3000
+ },
  {
   "id":5,
   "nomProduit": "menu simple",
@@ -62,6 +86,55 @@ private buger!:IBurger;
   ];
 
   private Burger:IBurger[]=[
+    {
+      "id":9,
+      "nomProduit": "burger simple",
+      "image": "assets/burger.jpeg",
+      "prix": 3000
+   },
+    {
+      "id":10,
+        "nomProduit": "burger simple",
+        "image": "assets/burger.jpeg",
+        "prix": 3000
+     },
+     {
+      "id":11,
+      "nomProduit": "buregr simple",
+      "image": "assets/burger.jpeg",
+      "prix": 3000
+   },
+   {
+    "id":12,
+    "nomProduit": "burger simple",
+    "image": "assets/burger.jpeg",
+    "prix": 3000
+ },
+   {
+    "id":13,
+    "nomProduit": "burger simple",
+    "image": "assets/burger.jpeg",
+    "prix": 3000
+  },
+  {
+    "id":14,
+    "nomProduit": "burger simple",
+    "image": "assets/burger.jpeg",
+    "prix": 3000
+  },
+  {
+    "id":15,
+    "nomProduit": "burger simple",
+    "image": "assets/burger.jpeg",
+    "prix": 3000
+  },
+  {
+
+    "id":16,
+    "nomProduit": "burger simple",
+    "image": "assets/burger.jpeg",
+    "prix": 3000
+  },
     {
       "id":9,
       "nomProduit": "burger simple",
