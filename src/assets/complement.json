@@ -1,0 +1,40 @@
+{
+    "portionFrite": [{
+            "id": "23",
+            "nom": "porton simple",
+            "image": ""
+        },
+        {
+            "id": "23",
+            "nom": "porton simple",
+            "image": ""
+        },
+        {
+            "id": "23",
+            "nom": "porton simple",
+            "image": ""
+        }
+
+    ],
+
+    "boisson": [{
+            "id": "1",
+            "libelle": "canette",
+            "boissons": [
+                "/api/boissons/17",
+                "/api/boissons/18"
+
+            ]
+        },
+        {
+            "id": "1",
+            "libelle": "canette",
+            "boissons": [
+                "/api/boissons/17",
+                "/api/boissons/18"
+
+            ]
+        }
+
+    ]
+}

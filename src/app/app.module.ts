@@ -12,6 +12,11 @@ import { HeaderCatalogueComponent } from './header-catalogue/header-catalogue.co
 import { FiltreCatalogueComponent } from './filtre-catalogue/filtre-catalogue.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { FormRecuperationComponent } from './form-recuperation/form-recuperation.component';
+import { BoissonComponent } from './boisson/boisson.component';
+import { ComplementComponent } from './complement/complement.component';
+import { PanierComponent } from './panier/panier.component';
+import { TotalCommandeComponent } from './total-commande/total-commande.component';
+import { ProduitCommandeComponent } from './produit-commande/produit-commande.component';
 
 
 
@@ -26,7 +31,13 @@ import { FormRecuperationComponent } from './form-recuperation/form-recuperation
     HeaderCatalogueComponent,
     FiltreCatalogueComponent,
     DetailProduitComponent,
-    FormRecuperationComponent
+    FormRecuperationComponent,
+    BoissonComponent,
+    ComplementComponent,
+    PanierComponent,
+    TotalCommandeComponent,
+    ProduitCommandeComponent,
+   
   ],
   imports: [
     BrowserModule,

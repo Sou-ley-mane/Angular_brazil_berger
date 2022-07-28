@@ -3,6 +3,7 @@ export class IMenu{
         prix!:number;
         nomProduit!:string;
         image!:string;
+       
 }
 
 

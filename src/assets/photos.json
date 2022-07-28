@@ -1,0 +1,38 @@
+{
+    "boisson":  [{
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        }
+
+    ],
+    "frite":  [{
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        },
+        {
+            "nom": "Fanta",
+            "image": "assets/burger.jpeg"
+        }
+
+    ]
+}

@@ -1,3 +1,8 @@
 .filtreCatalogie {
     border: 2px solid rgb(27, 18, 36);
 }
+
+.hauteur {
+    background-color: aqua;
+    height: 40vh;
+}

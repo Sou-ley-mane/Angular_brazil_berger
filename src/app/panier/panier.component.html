@@ -1,0 +1,27 @@
+<!-- <div class="headerPanier py-4"> -->
+<!-- <app-header-catalogue></app-header-catalogue> -->
+<!-- </div> -->
+
+<div class="produitCommander">
+    <div class="listProduit p-3">
+        <app-produit-commande></app-produit-commande>
+
+    </div>
+    <div class="livraison ">
+        <div class="prixCmd ">
+            <app-total-commande></app-total-commande>
+
+        </div>
+        <div class="modeLivraison ">
+            <app-form-recuperation></app-form-recuperation>
+        </div>
+    </div>
+</div>
+<div class="complement ">
+    <div class="boissons d-flex justify-content-around border border-3 border-dark ">
+        <p *ngFor="let tof of mesPhoto " class="p-3 "><img src="{{tof.image}} " height="60 " alt=" "></p>
+    </div>
+    <div class="frites d-flex justify-content-around border border-3 border-dark ">
+        <div *ngFor="let tof of frites " class="p-3 "><img src="{{tof.image}} " height="60 " alt=" "></div>
+    </div>
+</div>

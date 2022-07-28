@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
+import { CadreProduitComponent } from './cadre-produit/cadre-produit.component';
 import { IMenu } from './menu/IMenu';
 import { CatalogueService } from './service/catalogue.service';
 
@@ -8,5 +9,9 @@ import { CatalogueService } from './service/catalogue.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+ 
+//  @Output() nbr!:number;
   title = 'BrasilBurger';
+  
+  
 }

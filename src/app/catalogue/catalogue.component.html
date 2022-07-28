@@ -1,4 +1,10 @@
-<app-header-catalogue></app-header-catalogue>
+<!-- <app-header-catalogue></app-header-catalogue> -->
 <app-filtre-catalogue></app-filtre-catalogue>
-<app-cadre-produit [lesBurgers]="burger"></app-cadre-produit>
-<app-cadre-produit [lesMenus]="menu"></app-cadre-produit>
+
+<div class="range container">
+    <app-cadre-produit *ngFor=" let burger of  burgers" [produit]="burger"></app-cadre-produit>
+</div>
+
+<div class="range container">
+    <app-cadre-produit *ngFor=" let menu of  menus" [produit]="menu"></app-cadre-produit>
+</div>
