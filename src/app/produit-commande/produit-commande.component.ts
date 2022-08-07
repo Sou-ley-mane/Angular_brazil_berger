@@ -9,11 +9,11 @@ import { DetailService } from '../service/detail.service';
 export class ProduitCommandeComponent implements OnInit {
   // @Input() produit!:any[];
   // elementSup!:any;
+  // quantite:number=this.serviceDetail.nombre
 
   // 
   constructor(private serviceDetail:DetailService) { }
   items$=this.serviceDetail.items$
-
 
     onSup(element:any){
       this.serviceDetail.supprimer(element)

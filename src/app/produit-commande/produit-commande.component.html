@@ -1,7 +1,7 @@
 <div class="card mb-3 w-100 p-2  ok " *ngFor="let prodCmd of  items$|async">
     <div class="row g-0 ">
         <div class="col-md-4 ">
-            <img src="{{'data:image/jpg;base64,'+prodCmd.image}}" class="img-fluid h-50  img-responsive rounded-start" alt="...">
+            <img src="{{'data:image/jpg;base64,'+prodCmd.image}}" class="img-fluid h-50  img-responsive rounded-start" alt="..." width="90">
         </div>
         <div class="col-md-8 row ">
             <div class="card-body col-md-8">
@@ -12,7 +12,7 @@
             <div class=" col-md-4 p-3  d-flex justify-content-around">
                 <div>
                     <p class="fw-bold">QT</p>
-                    <input class="w-50" type="text" value="1">
+                    <input class="w-50" type="text" value="{{prodCmd.quantites}}">
                 </div>
                 <div>
                     <p class="text-danger fw-bold">Supprimer</p>
@@ -25,3 +25,11 @@
     </div>
 
 </div>
+<!-- <hr class="my-4" /> -->
+
+
+
+
+<!-- **************************************************************************** -->
+<!-- **************************************************************************** -->
+<!--  -->

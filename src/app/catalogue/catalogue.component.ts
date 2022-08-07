@@ -5,7 +5,7 @@ import { CadreProduitComponent } from '../cadre-produit/cadre-produit.component'
 import { IMenu } from '../menu/IMenu';
 import { CatalogueService } from '../service/catalogue.service';
 import { ComplementService } from '../service/complement.service';
-import { ICatalogue } from './ICatalogue';
+// import { ICatalogue } from './ICatalogue';
   
 @Component({
   selector: 'app-catalogue',
@@ -17,7 +17,7 @@ export class CatalogueComponent implements OnInit {
   // produitsBurger!: IProduit[];
   menus:IMenu []=[];
   burgers:IBurger[]=[];
-  catalogues!:ICatalogue;
+  // catalogues!:ICatalogue;
 
  
   
@@ -70,16 +70,36 @@ export class CatalogueComponent implements OnInit {
     // console.log(this.burgers)
   
 
-    this.catalogue.getCatalogue().subscribe(data=>{
-      this.burgers=data.burger;
-      this.menus=data.menu;
-    console.log(this.burgers);
-    
-  
+    this.catalogue.getCatalogue().subscribe((data)=>{
+      // console.log(data);
+   this.burgers=data.burger
+   this.menus=data.menu
+
+      
     })
 
-  
+    // this.catalogue.getBurger().subscribe(data=>{
+    //   // console.log(data);
+    //   // this.burgers=data.burger;
+    //   // this.menus=data.menu;
+    //   this.burgers=data;
+      
+    // })
 
+    // this.catalogue.getLesBurgers().subscribe(data=>{
+    //   console.log(data);
+    //   this.burgers=data.burgers;
+      
+    // })
+    // this.catalogue.getLesMenu().subscribe(data=>{
+    //   console.log(data);
+    //   this.menus=data.menus;
+    // })
+
+ 
+
+
+ 
 
 
 

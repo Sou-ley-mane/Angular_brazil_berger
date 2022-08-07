@@ -12,37 +12,44 @@ import { DetailService } from '../service/detail.service';
   styleUrls: ['./cadre-produit.component.css'],
 })
 export class CadreProduitComponent implements OnInit {
-  @Input() produit!: IMenu | IBurger;
+  @Input() produit!: any;
+  
+  
+  // @Input() produit1!: any;
+
   etat:string=''
+  tab:any []=[]
+  q=0;
+
   // i: number = 0;
   // nombreDeproduit: number = 0;
  element!:IMenu;
   constructor(private route: Router,private auPanier:DetailService) {}
-
+// onTouch():number{
+//   this.q= this.q+1;
+//   return this.q;
+// }
   
 changeCouleur(){
-  return this.etat='bg-dark'
+  return this.etat='bg-warning '
 }
-  
-  theProduct(produitChoix:IMenu){
-    console.log(produitChoix);
-    this.auPanier.addToCart(produitChoix)
-   this.auPanier.calcul(produitChoix);
-    // this.element=produitChoix
-    // this.auPanier.addToCart( this.element)
-    // this.auPanier.addProd(this.element)
-    // console.log(this.auPanier);
-    // return this.element
-  }
-  
-  ngOnInit(): void {
-    
-    
-    // console.log();
-    
-    //  this.catalo.show(this.el);
-  }
+testExistance(produit:any){
 
- 
+  // return true
+
+}
+addToCart(produitChoix:IMenu|IBurger){
+  this.auPanier.addToCart(produitChoix)
+  //  this.auPanier.calcul(produitChoix);
+
+}
+
+  // theProduct(produitChoix:IMenu|IBurger){
+  //  this.auPanier.calcul(produitChoix);
+  // }
+
+  ngOnInit(): void {
+  
+  }
 
 }

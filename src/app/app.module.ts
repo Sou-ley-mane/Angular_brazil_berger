@@ -17,6 +17,9 @@ import { ComplementComponent } from './complement/complement.component';
 import { PanierComponent } from './panier/panier.component';
 import { TotalCommandeComponent } from './total-commande/total-commande.component';
 import { ProduitCommandeComponent } from './produit-commande/produit-commande.component';
+import { FormConnexionComponent } from './form-connexion/form-connexion.component';
+import { FormsModule } from '@angular/forms';
+import { FriteMenuComponent } from './frite-menu/frite-menu.component';
 
 
 
@@ -37,15 +40,18 @@ import { ProduitCommandeComponent } from './produit-commande/produit-commande.co
     PanierComponent,
     TotalCommandeComponent,
     ProduitCommandeComponent,
+    FormConnexionComponent,
+    FriteMenuComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
  
   ],
-  providers: [],
+  providers: [], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,26 +2,106 @@
 <!-- <app-header-catalogue></app-header-catalogue> -->
 <!-- </div> -->
 
-<div class="produitCommander">
-    <div class="listProduit p-3">
-        <app-produit-commande></app-produit-commande>
-
-    </div>
-    <div class="livraison ">
-        <div class="prixCmd ">
-            <app-total-commande></app-total-commande>
+<!-- <div class="produitCommander">
+        <div class="listProduit p-3">
+            <app-produit-commande></app-produit-commande>
 
         </div>
-        <div class="modeLivraison ">
-            <app-form-recuperation></app-form-recuperation>
+        <div class="livraison ">
+            <div class="prixCmd ">
+                <app-total-commande></app-total-commande>
+
+            </div>
+            <div class="modeLivraison ">
+                <app-form-recuperation></app-form-recuperation>
+            </div>
+        </div> -->
+<!-- </div> -->
+<!-- <div class="complement">
+        <div class="boissons d-flex justify-content-around align-items-center border border-3 border-dark ">
+            <div *ngFor="let tof of mesPhoto " class="p-3 ">
+                <img src="{{'data:image/jpg;base64,'+tof.image}} " alt="boisson"><br>
+                <input *ng type="radio">
+            </div> -->
+
+<!-- </div>
+        <div class="frites d-flex justify-content-around border border-3 border-dark ">
+            <div *ngFor="let tof of frites " class="p-3 "><img src="{{tof.image}} " height="60 " alt=" ">
+                <input type="radio">
+            </div>
+        </div>
+    </div> -->
+
+<!-- ***************************************************************************** -->
+<div class="titre bg-warning">
+    <h3>VOTRE PANIER</h3>
+</div>
+<!-- ****************************************************************************** -->
+<section class="h-100 gradient-custom">
+    <div class="container-fluid py-5">
+        <div class="d-flex justify-content-around">
+            <div class="row d-flex justify-content-center my-4  ">
+                <div class="col-md-8 ">
+                    <div class="card mb-4 haut">
+                        <div class="card-header  bg-warning">
+                            <h5 class="mb-0 ">VOTRE PANIER</h5>
+                        </div>
+                        <div class="card-body ">
+                            <app-produit-commande></app-produit-commande>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="">
+                    <div class="col-sm-6">
+                        <div class="card largeur p-2">
+                            <div class="card-body">
+                                <h3>LES COMPLEMENT</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ***************************************** -->
+
+
+
+
+            <!-- ********************************************************* -->
+
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-warning py-3">
+                        <h5 class="mb-0 text-center">Recapitulatif de votre commande</h5>
+                    </div>
+                    <div class="card-body">
+                        <app-total-commande></app-total-commande>
+
+                        <app-form-recuperation></app-form-recuperation>
+
+                        <!-- <button type="button" class="btn btn-info btn-lg btn-block">
+                        Valider
+                      </button> -->
+                    </div>
+                </div>
+                <!-- <div class="card mb-4">
+                    <div class="card-header bg-warning py-3">
+                        <h5 class="mb-0">MODE DE LIVRAISON</h5>
+                    </div>
+                    <div class="card-body">
+                        <app-form-recuperation></app-form-recuperation>
+                    </div>
+                </div> -->
+            </div>
+
         </div>
     </div>
-</div>
-<div class="complement ">
-    <div class="boissons d-flex justify-content-around border border-3 border-dark ">
-        <p *ngFor="let tof of mesPhoto " class="p-3 "><img src="{{tof.image}} " height="60 " alt=" "></p>
-    </div>
-    <div class="frites d-flex justify-content-around border border-3 border-dark ">
-        <div *ngFor="let tof of frites " class="p-3 "><img src="{{tof.image}} " height="60 " alt=" "></div>
-    </div>
-</div>
+
+
+    <!-- *************************************************************** -->
+
+    <!-- **************************************************************** -->
+
+
+</section>

@@ -1,1 +1,42 @@
-<p>{{Photo.nom}}</p>
+<!-- <div class="w-25 m-2">
+    <div class="imageBureger bg-black">
+        <img src="{{ 'data:image/jpg;base64,' + mesBoissons.image }}" height="90" width="92" alt="" />
+    </div>
+    <div class="d-flex boutons">
+        <button type="button" id="btnG" (click)="moins(input)">-</button>
+        <input #input class="compteur text-center" value="{{ Qte }}" readonly type="text" />
+        <button id="btnD" [disabled]="desativer" (click)="plus(input)">+</button>
+    </div>
+</div> -->
+
+<div class="row mx-2">
+    <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+        <!-- Image -->
+        <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+            <img src="{{ 'data:image/jpg;base64,' + mesBoissons.image }}" height="90" width="92" alt="Blue Jeans Jacket" />
+            <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+            </a>
+        </div>
+        <!-- Image -->
+    </div>
+
+    <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+        <!-- Data -->
+        <p><strong>{{mesBoissons.nomProduit}}</strong></p>
+        <strong>{{mesBoissons.prix}} <span>Fcfa</span> </strong>
+    </div>
+
+    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- Quantity -->
+        <div class="d-flex mb-4" style="max-width: 300px">
+            <button type="button" id="btnG" (click)="moins(input)">-</button>
+            <div class="form-outline">
+                <input #input class="compteur text-center" value="{{ Qte }}" readonly type="text" />
+                <label class="form-label" for="form1">Quantité</label>
+            </div>
+            <button id="btnD" [disabled]="desativer" (click)="plus(input)">+</button>
+
+        </div>
+    </div>
+</div>

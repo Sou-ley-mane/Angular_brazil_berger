@@ -4,28 +4,29 @@
 }
 
 .cadreDetail {
-    /* height: auto; */
+    height: 80vh;
     background-color: rgb(29, 29, 4);
     /* padding-bottom: 10em; */
 }
 
-.case {
+.largeur {
+    width: 60vw;
+}
+
+.haut {
+    height: 60vh;
+}
+
+.haut1 {
+    height: 40vh;
     width: 20vw;
-    background-color: gainsboro;
 }
 
-.infoPrix {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    /* background-color: aqua; */
-}
 
-.img {
-    /* width: 100%; */
-    height: 45vh;
-}
+/* ************************************** */
 
-.complement {
-    height: 10vh;
+.lesBoisson {
+    /* overflow-y: auto; */
+    overflow-x: auto;
+    /* display: flex; */
 }
