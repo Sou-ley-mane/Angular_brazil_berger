@@ -16,6 +16,7 @@ export class GestionCommandeService {
  panier:any=this.serviceDetail.getItems()
  
  urlCmd="http://127.0.0.1:8000/api/commandes"
+//  urlOneCmd="http://127.0.0.1:8000/api/commandes/"
   constructor(private http: HttpClient,private serviceDetail:DetailService) { }
 
   AddCmd(body:ICommande) {
@@ -23,6 +24,14 @@ export class GestionCommandeService {
     this.http.post<any>(this.urlCmd, body, { headers }).subscribe();
   }
 
+ 
+  getCommandes(): Observable<any> {
+    return this.http.get<any>(this.urlCmd);
+  }
+
+  getOneOneCommande(id: number): Observable<ICommande> {
+    return this.http.get<ICommande>("http://127.0.0.1:8000/api/commandes/"+ id);
+  }
 
 
 //   getLigneCmd(){

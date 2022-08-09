@@ -1,14 +1,18 @@
 <!-- <app-header-catalogue></app-header-catalogue> -->
+
 <app-filtre-catalogue></app-filtre-catalogue>
+<div class="search-hero w-25 m-2 border border-3 border-danger">
+    <input [(ngModel)]="searchText" class="form-control" type="text" name="search" autocomplete="off" placeholder="  Rechercer suivant l'id">
+</div>
 <hr>
 <h3 class="text-center">NOS BURGERS</h3>
 <hr>
 <div class="range container">
-    <app-cadre-produit *ngFor=" let burger of  burgers" [produit]="burger"></app-cadre-produit>
+    <app-cadre-produit *ngFor=" let burger of  burgers | filter:searchText " [produit]="burger"></app-cadre-produit>
 </div>
 <hr>
 <h3 class="text-center">NOS MENUS</h3>
 <hr>
 <div class="range container">
-    <app-cadre-produit *ngFor=" let menu of  menus" [produit]="menu"></app-cadre-produit>
+    <app-cadre-produit *ngFor=" let menu of  menus | filter:searchText" [produit]="menu"></app-cadre-produit>
 </div>

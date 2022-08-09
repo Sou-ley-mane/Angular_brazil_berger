@@ -5,7 +5,10 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ComplementComponent } from './complement/complement.component';
 import { DetailProduitComponent } from './detail-produit/detail-produit.component';
 import { FormConnexionComponent } from './form-connexion/form-connexion.component';
+import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-commande.component';
 import { HomeComponent } from './home/home.component';
+import { DetailCommandeComponent } from './liste-client-cmd/detail-commande/detail-commande.component';
+import { ListeClientCmdComponent } from './liste-client-cmd/liste-client-cmd.component';
 import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
@@ -15,6 +18,13 @@ const routes: Routes = [
   {path:'produit/:id',component:DetailProduitComponent},
   {path:'complement',component:ComplementComponent},
   {path:'varite',component:BoissonComponent},
+  {path:'client',component:ListeClientCmdComponent},
+  {path:'commande/:id',component:DetailCommandeComponent},
+  {path:'commandes',component:GestionDesCommandeComponent},
+  {path:'cmd/:id',component:GestionDesCommandeComponent},
+
+ 
+
 
 
   {path:'**',redirectTo:'/',pathMatch:'full'}

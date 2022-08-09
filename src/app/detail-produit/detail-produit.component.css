@@ -30,3 +30,8 @@
     overflow-x: auto;
     /* display: flex; */
 }
+
+.circule {
+    overflow-x: auto;
+    overflow-y: hidden;
+}

@@ -24,12 +24,12 @@ export class CadreProduitComponent implements OnInit {
   // i: number = 0;
   // nombreDeproduit: number = 0;
  element!:IMenu;
-  constructor(private route: Router,private auPanier:DetailService) {}
+  constructor(private route: Router,private auPanier:DetailService,private catalogurSErvice:CatalogueService) {}
 // onTouch():number{
 //   this.q= this.q+1;
 //   return this.q;
 // }
-  
+
 changeCouleur(){
   return this.etat='bg-warning '
 }
@@ -50,6 +50,7 @@ addToCart(produitChoix:IMenu|IBurger){
 
   ngOnInit(): void {
   
+
   }
 
 }

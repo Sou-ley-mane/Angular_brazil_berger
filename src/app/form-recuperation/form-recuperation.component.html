@@ -56,7 +56,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex justify-content-between" *ngFor="let zone of mesZones">
-                    <input class="  border-3 border-dark" type="radio" name="flexRadioDefault" />
+                    <input value="{{zone.id}}" class="  border-3 border-dark" type="radio" name="flexRadioDefault" />
                     <label class="form-check-label mx-2 fw-bold" for="flexRadioDefault2">{{zone.nomZone}}</label>
                     <p class="fw-bold">{{zone.etatZone}}</p>
                     <p class="fw-bold">{{zone.coutLivraison }}<span>FCFA</span></p>

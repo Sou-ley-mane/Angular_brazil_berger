@@ -1,0 +1,11 @@
+<div class="container  py-5">
+
+    <div *ngFor="let commande of client.commandes">
+        <app-info-commande [commande]="commande"></app-info-commande>
+        <div class="d-flex produitCommande">
+
+            <app-info-produit class="mx-3" *ngFor="let prod of commande.Produits" [produit]="prod"></app-info-produit>
+        </div>
+
+    </div>
+</div>

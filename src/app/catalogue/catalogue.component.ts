@@ -17,6 +17,7 @@ export class CatalogueComponent implements OnInit {
   // produitsBurger!: IProduit[];
   menus:IMenu []=[];
   burgers:IBurger[]=[];
+  searchText: any;
   // catalogues!:ICatalogue;
 
  
@@ -24,7 +25,6 @@ export class CatalogueComponent implements OnInit {
   // subscribe ?= Subscription;
 
   constructor(private catalogue:CatalogueService) { }
-
   ngOnInit(): void {
   
     
@@ -78,6 +78,7 @@ export class CatalogueComponent implements OnInit {
       
     })
 
+ 
     // this.catalogue.getBurger().subscribe(data=>{
     //   // console.log(data);
     //   // this.burgers=data.burger;
@@ -95,13 +96,6 @@ export class CatalogueComponent implements OnInit {
     //   console.log(data);
     //   this.menus=data.menus;
     // })
-
- 
-
-
- 
-
-
 
   }
 }

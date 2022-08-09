@@ -20,7 +20,12 @@ import { ProduitCommandeComponent } from './produit-commande/produit-commande.co
 import { FormConnexionComponent } from './form-connexion/form-connexion.component';
 import { FormsModule } from '@angular/forms';
 import { FriteMenuComponent } from './frite-menu/frite-menu.component';
-
+import { ListeClientCmdComponent } from './liste-client-cmd/liste-client-cmd.component';
+import { DetailCommandeComponent } from './liste-client-cmd/detail-commande/detail-commande.component';
+import { InfoCommandeComponent } from './liste-client-cmd/detail-commande/info-commande/info-commande.component';
+import { InfoProduitComponent } from './liste-client-cmd/detail-commande/info-produit/info-produit.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-commande.component';
 
 
 @NgModule({
@@ -42,13 +47,19 @@ import { FriteMenuComponent } from './frite-menu/frite-menu.component';
     ProduitCommandeComponent,
     FormConnexionComponent,
     FriteMenuComponent,
+    ListeClientCmdComponent,
+    DetailCommandeComponent,
+    InfoCommandeComponent,
+    InfoProduitComponent,
+    GestionDesCommandeComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
  
   ],
   providers: [], 

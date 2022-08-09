@@ -4,6 +4,7 @@ import { from, map, Observable, take } from 'rxjs';
 import { IMenu } from '../menu/IMenu';
 import { IBurger } from '../burger/burger';
 import { ICatalogue } from '../catalogue/ICatalogue';
+import { IClient } from './modeles/ICommande';
 @Injectable({
   providedIn: 'root',
 })
@@ -73,15 +74,15 @@ export class CatalogueService {
     return this.http.get<ICatalogue>('http://localhost:8000/api/produits/' + id);
   }
 
-  //   getBurgersByID(id: number): Observable<ICatalogue> {
-  //     return this.http.get<ICatalogue>('http://localhost:8000/api/burgers/' + id);
-  //     // return this.http.get<ICatalogue>('http://localhost:8000/api/menus/' + id);
-  // }
+ 
+  getClients(): Observable<any> {
+    return this.http.get<any>('http://localhost:8000/api/clients/');
+  }
 
-  // getProduit(id:number):Observable<ICatalogue>{
-  //   return this.http.get<ICatalogue>("http://localhost:8000/api/produits/"+id);
-  // }
-
+  getOneClient(id: number): Observable<IClient> {
+    return this.http.get<IClient>('http://localhost:8000/api/clients/' + id);
+  }
+               
   // Mes photo de boisson
   getBoisson(): Observable<any> {
     return this.http.get<any>('http://localhost:8000/api/boissons');
@@ -92,28 +93,6 @@ export class CatalogueService {
   getFrite(): Observable<any> {
     return this.frite;
   }
-
-  // getMenuBurger(id:number):Observable<ICatalogue>{
-  //   return this.http.get<ICatalogue>("http://localhost:8000/api/produits/"+id);
-  // }
-
-  // getDonnees():Observable<IMenu>{
-  //   return this.menu;
-  // }
-  // getBurger():Observable<IBurger>{
-  //     return this.Burger;
-
-  //   }
-
-  // MON JSON SERVER
-  // getLesBurgers():Observable<any>{
-  //   return this.http.get<any>("  http://localhost:3000/burgers");
-
-  // }
-
-  // getLesMenu():Observable<any>{
-
-  //   return this.http.get<any>("http://localhost:3000/menus");
-
-  // }
 }
+
+

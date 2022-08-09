@@ -22,6 +22,9 @@ export class DetailProduitComponent implements OnInit {
   boissons: any;
   taiile:any
   siOk:boolean=false
+  lesmenus:IMenu[]=[]
+  lesburgers:IBurger[]=[]
+
   id: number = +this.route.snapshot.params['id'];
   
 
@@ -54,6 +57,8 @@ this.siOk=false
     });
     return som
   }
+
+
   ngOnInit(): void {
     this.catalogueService.getProduit(this.id).subscribe((data) => {
       this.detailProduit = data; 
@@ -66,6 +71,10 @@ this.siOk=false
       this.gestionCmd.laQuantite=this.taiile[0].quantite
       
     });
+
+
+
+  
     // this.gestionCmd.getLigneCmd()
 
     //   this.produit

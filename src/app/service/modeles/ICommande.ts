@@ -1,4 +1,7 @@
+import { IZones } from "./IZones"
+
 export interface ICommande{
+
      Produits: ILigneCmd[]
      zone:string
 }
@@ -21,8 +24,28 @@ export interface Commande{
         client: string,
         livraison?: string,
         gestionnaire?: string,
-        Produits: ILigneCmd[]
-        zone:string
+        Produits: {quantite:number,produit:IProduit}[]
+        zone:IZones
 
 
+}
+
+
+export interface IClient{
+        id:number
+        adresse: string,
+        telephone: string,
+        email: string,
+        prenom: string,
+        nom: string,
+        commandes: Commande[]
+}
+
+
+export interface IProduit{
+        id: number,
+        nomProduit:string,
+        prix: number,
+        image:string ,
+        quantites:number
 }
