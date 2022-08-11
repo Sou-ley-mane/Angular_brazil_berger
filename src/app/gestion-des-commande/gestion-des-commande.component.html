@@ -19,7 +19,7 @@
                 <td>{{commande.client.prenom}}</td>
                 <td class="">
                     <button (click)="changeEtatCmd(commande.id,'valider')" type="button" class="{{couleur}} mx-2">{{titre}}</button>
-                    <!-- <button (click)="changeEtatCmd(commande.id,'annuler')" type="button" class="btn btn-danger">Annuler</button> -->
+                    <button (click)="changeEtatCmd(commande.id,'terminer')" type="button" class="btn btn-danger">Terminer</button>
                     <button [routerLink]="['/cmd',commande.id]" type="button" class="btn btn-warning mx-2">Detail</button>
                 </td>
 

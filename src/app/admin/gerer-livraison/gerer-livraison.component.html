@@ -1,0 +1,57 @@
+<div class="float-end mx-3"> 
+    <button [disabled]="desactive()"  (click)=" addLivraison()" type="button" class="btn btn-primary" >
+        Livrer
+      </button>
+</div>
+
+<div class="container mt-3">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Num Cmd</th>
+        <th scope="col">Etat commande</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commande of commandes;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{commande.numCmd}}</td>
+        <td>{{commande.etatCmd}}</td>
+        <td>{{commande.dateCmd| date:"HH:MM"}}</td>
+        <td><input #input (click)=" getValueCheck(commande,input)" type="checkbox"></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal Affiche  livreur -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   Choisi
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">LES LIVREURS DISPONIBLES</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div *ngFor="let livreur of lesLivreurs" class="d-flex justify-content-around">
+
+            <span>{{livreur.matricule}}</span><span>{{livreur.prenom}}</span><span>{{livreur.telephoneLivreur}}</span><input #input value="{{livreur.id}}" name="livreur"  type="radio" (input)="getLivreur(input)">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-bs-dismiss="modal">C'est ok</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

@@ -14,4 +14,9 @@ export class ZonesService {
     return this.http.get<IZones>("http://127.0.0.1:8000/api/zones");
   }
 
+  getOneOneZones(id: number): Observable<IZones> {
+    return this.http.get<IZones>("http://127.0.0.1:8000/api/zones/"+ id);
+  }
+
+
 }

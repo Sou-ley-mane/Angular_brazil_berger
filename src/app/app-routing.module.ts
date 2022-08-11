@@ -22,6 +22,7 @@ const routes: Routes = [
   {path:'commande/:id',component:DetailCommandeComponent},
   {path:'commandes',component:GestionDesCommandeComponent},
   {path:'cmd/:id',component:GestionDesCommandeComponent},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
  
 

@@ -38,6 +38,8 @@ changerCouleur(){
       this.http.put<any>("http://127.0.0.1:8000/api/commandes/"+id,{etatCmd:"annuler"}).subscribe()
     }else if (faire=="valider") {
      this.http.put<any>("http://127.0.0.1:8000/api/commandes/"+id,{etatCmd:"valider"}).subscribe()
+    }else{
+     this.http.put<any>("http://127.0.0.1:8000/api/commandes/"+id,{etatCmd:"terminer"}).subscribe()
     }
       }
 
