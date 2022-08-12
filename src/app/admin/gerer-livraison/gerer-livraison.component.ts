@@ -63,21 +63,22 @@ listDesLivreur(){
 
   }
 
+  //Recuperation des commandes  a livrer
   getValueCheck(commande:Commande,input:HTMLInputElement){
     if (input.checked) {
       this.gestionDesCommandes.ajoutDansLaLivraison(commande)
     }else{
-
       this.gestionDesCommandes.retirerDansLivraison(commande)
-     
     }
     console.log(this.gestionDesCommandes.CommandesAliver);
   }
 
+
+
   addLivraison(){
    let tab:string[]=[]
-  
-   console.log(this.gestionDesCommandes.CommandesAliver);
+
+  //  console.log(this.gestionDesCommandes.CommandesAliver);
    
     this.gestionDesCommandes.CommandesAliver.forEach(cmd=>{
       tab.push("/api/commandes/"+cmd.id)
@@ -85,7 +86,6 @@ listDesLivreur(){
 console.log(tab); 
 
     let body:ILivraison ={
-
         livreur: "/api/livreurs/"+this.idlivreur,
         commandes:tab, 
         zone: "/api/zones/1"

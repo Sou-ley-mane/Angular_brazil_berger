@@ -6,11 +6,10 @@ import { ZonesComponent } from './zones/zones.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
-  { path: 'commandes', children:[
+  { path: 'commandes', 
+  children:[
   { path: 'zone', component: ZonesComponent },
   { path: 'zone/:id', component: GererLivraisonComponent }
-
-
   ] },
   { path: '', component: AdminComponent }
 

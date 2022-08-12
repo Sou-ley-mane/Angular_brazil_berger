@@ -5,7 +5,7 @@ export interface IZones{
     nomZone: string;
     etatZone: string,
     coutLivraison: number
-    "commandes": Commande[]
+    commandes: Commande[]
         
 }
 

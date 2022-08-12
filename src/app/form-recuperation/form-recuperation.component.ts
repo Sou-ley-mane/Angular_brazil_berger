@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IBurger } from '../burger/burger';
 import { IMenu } from '../menu/IMenu';
 import { DetailService } from '../service/detail.service';
@@ -25,39 +26,44 @@ export class FormRecuperationComponent implements OnInit {
   result = ""
  mesZones:any
  input:any
-  constructor(private zone:ZonesService,private gestionCmde:GestionCommandeService,private detailService :DetailService) { }
+  constructor(private zone:ZonesService,private gestionCmde:GestionCommandeService,private detailService :DetailService,private router:Router) { }
 
   getZoneClient(){
     alert("ohhhhhh")
 
   }
-  viderPanier(){   
-    this.detailService.getItems().forEach((element:any) => {
-      this.detailService.getItems().splice(this.detailService.getItems().indexOf(element));
-    });
+  viderPanier(tableau:any[]){ 
+    tableau.forEach(produit=>{
+      this.detailService.supprimer(produit)
+    }) 
+
+  
+    
   }
 
   valider(){
+   
     let body:ICommande ={
       Produits:this.operationCmd(),
       zone:"/api/zones/2"
     }
     // console.log(body);
     // alert("azerty") 
-   this.gestionCmde.AddCmd(body)
-   this.viderPanier();
+  //  this.gestionCmde.AddCmd(body)
+   this.viderPanier(this.detailService.getItems());
+   this.router.navigateByUrl('')
    
   }
 
 
-coche(){
-  this.zone.getZones().subscribe(data=>{
-    this.mesZones=data
-    return this.mesZones
-    //  console.log(data);
-   })
+// coche(){
+//   this.zone.getZones().subscribe(data=>{
+//     this.mesZones=data
+//     return this.mesZones
+//     //  console.log(data);
+//    })
 
-}
+// }
 
 operationCmd(){
   let produits:ILigneCmd[]=[]

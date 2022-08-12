@@ -16,7 +16,10 @@ export class GestionCommandeService {
  som:number=0
  laQuantite!:number
  panier:any=this.serviceDetail.getItems()
+
  CommandesAliver:Commande[]=[]
+
+
  urlCmd="http://127.0.0.1:8000/api/commandes"
 //  urlOneCmd="http://127.0.0.1:8000/api/commandes/"
   constructor(private http: HttpClient,private serviceDetail:DetailService) { }
@@ -30,16 +33,19 @@ export class GestionCommandeService {
   getCommandes(): Observable<any> {
     return this.http.get<any>(this.urlCmd);
   }
+  
 
   getOneOneCommande(id: number): Observable<ICommande> {
     return this.http.get<ICommande>("http://127.0.0.1:8000/api/commandes/"+ id);
   }
-
+// Ajouter la commande dans le tableau
   ajoutDansLaLivraison(commande:Commande){
     this.CommandesAliver.push(commande)
   }
+
+  // Retirer la commande dans le tableau
 retirerDansLivraison(commande:Commande){
-  this.CommandesAliver.splice(  this.CommandesAliver.indexOf(commande,1))
+  this.CommandesAliver.splice(this.CommandesAliver.indexOf(commande,1))
 }
 
 activation(){
@@ -57,7 +63,7 @@ getLivreur(): Observable<ILvreur> {
 }
 
 AddLivraison(body:ILivraison) {
-  const headers = { 'Authorization': 'Bearer '+"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NjAyNDQ4NTMsImV4cCI6MTY2MDI0ODQ1Mywicm9sZXMiOlsiUk9MRV9HRVNUSU9OTkFJUkUiLCJST0xFX1ZJU0lURVVSIl0sInVzZXJuYW1lIjoiZ2F5ZUBleGFtcGxlLmNvbSJ9.Aw1Fzd7TeF3JtR2V_lUYhgGro3fQx6IQYC-tDpEOrQfF9c_R9hBakbwCOcOVSJ43DcGADzYX8TGK6rbzUD2rWA-pWH84GJ2r2VB4KSgq8G3983fWVBN2dq_7X1wFcBCyd36UYN7SCPvxzR5_3N3LBzzWhpFXgaWPv2r-qX7f6N3NUT-ZcFCl33TtXMQqm5THhQMASwREQY7MEQ29obtI2W7aiFvvVet2KrORG0h30wxcfWCZojJxf1dIKDPw-3AeeGdSksVPk-XwwqJtayzc9oOlrBetaC91Y1dQ4EIeb6KdMSLMcrlPkVxbes6FEKNv_dSRUCfATP1GAOKZtIPqyhEzB9_XnujLesRVhXoOdxZyuIPXkBrHfftk1W1oCqKsPIM3amkFYT660va6f1Wds6kUhIRO3zApj6nRBU9ctVp2zfMzLyzrnVf_TsFAbIXVzq0jHcTKqm9gybcguXNOyhnw0ezeDYdDGJ72FxRYiSC8GAHPD227a1mFw6lAXF-mZ_xl191ZZ4VgdU9mI80-0vvzdz95_ZW-fJbgf0Cwk9d1-mP4qVKV4LE1ILhKk27y8jL8JwSPmsCcTzUFDzscW1T0p0ZBdjxR6M4r3BRZZMChZsxZh8QWIfyLluTieBi7UJcSmMYc5uTqIqLC0HRx3uk02WRXPWI8U4utheVWq-Q"};
+  const headers = { 'Authorization': 'Bearer '+"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NjAzMTAxNjUsImV4cCI6MTY2MDMxMzc2NSwicm9sZXMiOlsiUk9MRV9HRVNUSU9OTkFJUkUiLCJST0xFX1ZJU0lURVVSIl0sInVzZXJuYW1lIjoiZ2F5ZUBleGFtcGxlLmNvbSJ9.LQeViGBGqO4SinZuxoCsqQWI6C7V6p8GYiAmwz9RDWmWpJW5vZFJg0znHAlGhiEALyBBOeUgzbi4GDLtOcXGTVWy-u-JRQHYEd__ioV60nh1WaMhTV1TZ1ncJ4UWniMnm2yjrrB5vjEYX3ejMoRgkDu6LjcQTr8JDkC8x19t0x7BW9nPENtdTgN4CVHVwKJJfdBkzdoYUB-He2IanwydaWA4kn_0MK945hhASs_6Rv4gapf__3QFYj9-s39kLLhpnrp4YgD5opzcioobeKFVOE0Cv_BsHgxVjI1DUJQ77klpV8o754tL9IDK0yqje0Qj9cqsMvWzMRcwj0oSbTVcIJfKcnRXyP-xy6ihivI02f7HdZKO9D-Dyjq1LwBIcym6kQBHfhfif8QU0hDRdvHIGIonVvMcgd7r24dUFfbzJKZzHFm0fj3RWy-7zMQ73Dg-_VogMLde61Pfj9_2amH27hMNc7e5Y1gtFsATEjAS4bey6-Zo1oS7IFMWTBfCTFFAcpRjXFEby1N2YWMcVttcZXJcD4BJWeVMfd9GaSt9gAEprBdgoxq4b9MXT5v-cBH5OREtFxGFlR2uNmPU2jfwJ3RxeHqg2JqoF2jzaiX5tBVMtpEdNeXHFEDFcj6_2b9u8cXKQyPiMVOSMbBtv-Xc5kpLjCupZdjgXYbMs1lB1ZE"};
   this.http.post<any>('http://127.0.0.1:8000/api/livraisons', body, { headers }).subscribe();
 }
 

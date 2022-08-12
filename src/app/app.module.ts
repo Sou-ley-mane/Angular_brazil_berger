@@ -26,6 +26,7 @@ import { InfoCommandeComponent } from './liste-client-cmd/detail-commande/info-c
 import { InfoProduitComponent } from './liste-client-cmd/detail-commande/info-produit/info-produit.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-commande.component';
+import { LivraisonComponent } from './livraison/livraison.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-
     InfoCommandeComponent,
     InfoProduitComponent,
     GestionDesCommandeComponent,
+    LivraisonComponent,
    
   ],
   imports: [

@@ -18,19 +18,20 @@ export class ZonesComponent implements OnInit {
 meszone:any
 zonesCmdTerminer:IZones[]=[]
   ngOnInit(): void {
-    this.zones.getZones().subscribe(data=>{
-      this.meszone=data
-    this.meszone.forEach((zone:IZones)=>{
-      zone.commandes.forEach(commande=>{
-        if (commande.etatCmd=="terminer") {
-          this.zonesCmdTerminer.push(zone)
-        }
-      })
-    })
-    this.zonesCmdTerminer=this.filter(this.zonesCmdTerminer)
+
+    // this.zones.getZones().subscribe(data=>{
+    //   this.meszone=data
+    // this.meszone.forEach((zone:IZones)=>{
+    //   zone.commandes.forEach(commande=>{
+    //     if (commande.etatCmd=="terminer") {
+    //       this.zonesCmdTerminer.push(zone)
+    //     }
+    //   })
+    // })
+    // this.zonesCmdTerminer=this.filter(this.zonesCmdTerminer)
    
     
-    })
+    // })
 
   }
 
