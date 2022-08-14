@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthentificationService } from '../service/authentification.service';
 
@@ -10,6 +10,7 @@ import { AuthentificationService } from '../service/authentification.service';
 })
 export class FormConnexionComponent implements OnInit {
   loginForm!: FormGroup;
+  // controle des messages d'erreurs a l'aide de cette propriété
   isSubmitted  =  false;
   constructor(
     private serviceAuth:AuthentificationService,
@@ -21,12 +22,13 @@ export class FormConnexionComponent implements OnInit {
   ngOnInit(): void {
     // validation
     this.loginForm=this.formBuilder.group({
-      email:['',Validators.required],
-      password:['',Validators.required]
+      email:['',[Validators.required,Validators.email]],
+      password:['',[Validators.required, Validators.minLength(6)]]
     })
   }
 
-  get formControls(){
+  // Getter pour faciliter le controle
+  get f(): { [key: string]: AbstractControl }{
     return this.loginForm.controls;
   }
 
@@ -37,7 +39,7 @@ if (this.loginForm.invalid) {
   return
 }
 this.serviceAuth.seConnecter(this.loginForm.value)
-this.router.navigateByUrl('/admin')
+this.router.navigateByUrl('/commandes')
 
   }
 

@@ -12,10 +12,10 @@ import { ListeClientCmdComponent } from './liste-client-cmd/liste-client-cmd.com
 import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'connexion'},
+  { path: '', pathMatch: 'full', redirectTo: '/catalogue'},
   {path:'connexion',component:FormConnexionComponent},
   {path:'panier',component:PanierComponent},
-  {path:'',component:CatalogueComponent},
+  {path:'catalogue',component:CatalogueComponent},
   {path:'produit/:id',component:DetailProduitComponent},
   {path:'complement',component:ComplementComponent},
   {path:'varite',component:BoissonComponent},

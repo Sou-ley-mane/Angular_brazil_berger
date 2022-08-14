@@ -28,6 +28,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-commande.component';
 import { LivraisonComponent } from './livraison/livraison.component';
 import { BoissonComplementComponent } from './boisson-complement/boisson-complement.component';
+import { RegistreComponent } from './registre/registre.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { BoissonComplementComponent } from './boisson-complement/boisson-complem
     GestionDesCommandeComponent,
     LivraisonComponent,
     BoissonComplementComponent,
+    RegistreComponent,
    
   ],
   imports: [
