@@ -1,18 +1,35 @@
 <!-- <app-header-catalogue></app-header-catalogue> -->
 
 <app-filtre-catalogue></app-filtre-catalogue>
-<div class="search-hero w-25 m-2 border border-3 border-danger">
-    <input [(ngModel)]="searchText" class="form-control" type="text" name="search" autocomplete="off" placeholder="  Rechercer suivant l'id">
+<div class="d-flex justify-content-around">
+    <div class="d-flex">
+        <div>facebook</div>
+        <div>  twtter</div>
+        <div>instagram</div>
+        
+    </div>
+    <div>
+        <h3>BRAZIL BURGER</h3>
+    </div>
+    <div class="search-hero w-25 m-2 border border-3 border-danger">
+        <input [(ngModel)]="searchText" class="form-control" type="text" name="search" autocomplete="off" placeholder="  Recherche">
+    </div>
 </div>
+
+<div class="bg-warning">
 <hr>
-<h3 class="text-center">NOS BURGERS</h3>
+<h3 class="text-center titremenu">NOS BURGERS</h3>
 <hr>
+</div>
+
 <div class="range container">
     <app-cadre-produit *ngFor=" let burger of  burgers | filter:searchText " [produit]="burger"></app-cadre-produit>
 </div>
-<hr>
-<h3 class="text-center">NOS MENUS</h3>
-<hr>
+<div class="bg-warning ">
+    <hr>
+    <h3 class="text-center titremenu">NOS MENUS</h3>
+    <hr>
+    </div>
 <div class="range container">
     <app-cadre-produit *ngFor=" let menu of  menus | filter:searchText" [produit]="menu"></app-cadre-produit>
 </div>

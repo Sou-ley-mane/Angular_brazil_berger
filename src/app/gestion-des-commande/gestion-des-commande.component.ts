@@ -12,6 +12,7 @@ export class GestionDesCommandeComponent implements OnInit {
 tableauDeCommande:any[]=[]
 couleur:string='btn btn-success '
 titre:string='valider'
+ lesCmdValidOuEnCours:any[]=[]
   constructor(private gestionCommade:GestionCommandeService,private activeRoue:ActivatedRoute,private http:HttpClient) { }
 
 
@@ -45,8 +46,17 @@ changerCouleur(){
 
 
   ngOnInit(): void {
+
     this.gestionCommade.getCommandes().subscribe(data=> {
       this.tableauDeCommande=data  
+      this.tableauDeCommande.forEach(commande=>{
+        if (commande.etatCmd=='valider'|| commande.etatCmd=='cours') {
+        this.lesCmdValidOuEnCours.push(commande)
+          
+        }
+      })
+      // console.log(data);
+      
 
     
     })

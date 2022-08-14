@@ -2,3 +2,16 @@
     display: flex;
     justify-content: space-between;
 }
+.caderproduit{
+    box-shadow: 3rem ;
+    /* border: 2px solid green; */
+}
+.imdcadreprod{
+    border: 2px solid green;
+    box-shadow: 0rem 0rem 1rem 0rem ;
+    /* border-radius: 1rem 1rem; */
+}
+.corpscadre{
+    background-color: rgb(227, 215, 89);
+   
+}

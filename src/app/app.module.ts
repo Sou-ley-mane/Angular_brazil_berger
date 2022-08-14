@@ -18,7 +18,7 @@ import { PanierComponent } from './panier/panier.component';
 import { TotalCommandeComponent } from './total-commande/total-commande.component';
 import { ProduitCommandeComponent } from './produit-commande/produit-commande.component';
 import { FormConnexionComponent } from './form-connexion/form-connexion.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FriteMenuComponent } from './frite-menu/frite-menu.component';
 import { ListeClientCmdComponent } from './liste-client-cmd/liste-client-cmd.component';
 import { DetailCommandeComponent } from './liste-client-cmd/detail-commande/detail-commande.component';
@@ -27,6 +27,7 @@ import { InfoProduitComponent } from './liste-client-cmd/detail-commande/info-pr
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-commande.component';
 import { LivraisonComponent } from './livraison/livraison.component';
+import { BoissonComplementComponent } from './boisson-complement/boisson-complement.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { LivraisonComponent } from './livraison/livraison.component';
     InfoProduitComponent,
     GestionDesCommandeComponent,
     LivraisonComponent,
+    BoissonComplementComponent,
    
   ],
   imports: [
@@ -61,7 +63,8 @@ import { LivraisonComponent } from './livraison/livraison.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule
  
   ],
   providers: [], 

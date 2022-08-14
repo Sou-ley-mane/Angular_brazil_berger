@@ -31,7 +31,7 @@ export class CadreProduitComponent implements OnInit {
 // }
 
 changeCouleur(){
-  return this.etat='bg-warning '
+  return this.etat='bg-info'
 }
 testExistance(produit:any){
 

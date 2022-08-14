@@ -29,7 +29,7 @@
 
 
 <!-- Modal Affiche  livreur -->
-<!-- Button trigger modal -->
+<!-- Button Choix livrel -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
    Choisi
   </button>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-bs-dismiss="modal">C'est ok</button>
+          <button [disabled]="desactive()"  (click)=" addLivraison()" type="button" class="btn btn-info" data-bs-dismiss="modal">Livrer</button>
           <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>

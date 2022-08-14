@@ -10,6 +10,7 @@ import { IClient } from './modeles/ICommande';
 })
 export class CatalogueService {
   private buger!: IBurger;
+  tableauDeTaille:any[]=[]
 
   private boisson: any = [
     {

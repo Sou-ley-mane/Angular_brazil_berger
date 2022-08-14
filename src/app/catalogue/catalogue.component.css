@@ -3,3 +3,7 @@
     display: flex;
     flex-wrap: wrap;
 }
+.titremenu{
+    color: rgb(13, 4, 1);
+    font-weight: bold;
+}

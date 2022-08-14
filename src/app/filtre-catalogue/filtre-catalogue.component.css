@@ -6,3 +6,8 @@
     background-color: aqua;
     height: 40vh;
 }
+.accueil{
+    position: absolute;
+    /* transform: translate(50,50); */
+    background-color: white;
+}

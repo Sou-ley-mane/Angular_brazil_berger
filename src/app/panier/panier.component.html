@@ -54,10 +54,13 @@
                 </div>
 
                 <div class="">
+                    <div class="lesComplements py-2">
+                        <h4 class="text-center">VOUS POUVEZ AJOUTER DES COMPLEMENTS</h4>
+                    </div>
                     <div class="col-sm-6">
                         <div class="card largeur p-2">
-                            <div class="card-body">
-                                <h3>LES COMPLEMENT</h3>
+                            <div class="card-body d-flex py-2">
+                                <app-boisson-complement *ngFor="let boisson of lesBoissons" [boissonComplent]="boisson"></app-boisson-complement>
                             </div>
                         </div>
                     </div>
@@ -85,14 +88,6 @@
                       </button> -->
                     </div>
                 </div>
-                <!-- <div class="card mb-4">
-                    <div class="card-header bg-warning py-3">
-                        <h5 class="mb-0">MODE DE LIVRAISON</h5>
-                    </div>
-                    <div class="card-body">
-                        <app-form-recuperation></app-form-recuperation>
-                    </div>
-                </div> -->
             </div>
 
         </div>

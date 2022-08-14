@@ -11,6 +11,8 @@ import { GestionCommandeService } from '../service/gestion-commande.service';
 export class PanierComponent implements OnInit {
   mesPhoto:any;
   frites:any;
+  lesBoissons:any[]=[]
+  taillesDesboisson:any[]=[]
 
   mesProduit:any;
 // @Input() tableau:any[]=[]
@@ -23,7 +25,21 @@ export class PanierComponent implements OnInit {
 
     
   this.mesPhoto=this.catalogue.getBoisson();
-  console.log( this.mesPhoto);
+  // console.log( this.mesPhoto);
+
+
+  this.catalogue.getBoisson().subscribe(data=>{
+    this.lesBoissons=data
+    this.lesBoissons.forEach(element => {
+      this.taillesDesboisson=element.tailles
+      // console.log(this.taillesDesboisson);
+    });
+// console.log(data);
+
+    
+ 
+    
+  })
 
   // this.frites=this.catalogue.getFrite();
   // console.log(this.frites);
@@ -38,12 +54,23 @@ export class PanierComponent implements OnInit {
   //   this.menus=data.menu;
   // console.log(this.burgers);
   // })
+console.log(this.getLesTailles());
 
-  
   }
  
   // **********************************
-
+getLesTailles(){
+  this.catalogue.getBoisson().subscribe(data=>{
+    this.lesBoissons=data
+    this.lesBoissons.forEach(element => {
+      this.taillesDesboisson=element.tailles
+      // console.log(this.taillesDesboisson);
+    });   
+  })
+  
+  this.catalogue.tableauDeTaille=this.taillesDesboisson
+  return  this.catalogue.tableauDeTaille
+}
 
   
 

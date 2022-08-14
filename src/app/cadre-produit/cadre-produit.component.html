@@ -1,12 +1,13 @@
-<div class="row mx-2 my-2 row-cols-1 row-cols-sm-1 row-cols-md-2 g-3 ">
+<div class="row mx-2 my-2 row-cols-1 row-cols-sm-1 row-cols-md-2 g-3 caderproduit">
     <div class="card mx-2" style="width: 18rem;">
-        <a [routerLink]="['/produit',produit.id]"><img src="{{'data:image/jpg;base64,'+produit.image}}" class="card-img-top" height="200" alt="image produit"></a>
-        <div class="card-body">
+       
+        <a [routerLink]="['/produit',produit.id]"><img src="{{'data:image/jpg;base64,'+produit.image}}" class="card-img-top imdcadreprod" height="200" alt="image produit"></a>
+        <div class="card-body corpscadre">
             <h5 class="card-title">{{produit.nomProduit}}</h5>
             <p class="card-text">{{produit.prix}}</p>
             <div class="ajout">
                 <div class="">
-                    <a [routerLink]="['/produit',produit.id]" class="btn btn-warning">Detail</a>
+                    <a [routerLink]="['/produit',produit.id]" class="btn btn-primary">Detail</a>
                 </div>
                 <div class="{{etat}} ">
                     <button *ngIf="!produit.menuBurgers" (click)="addToCart(produit)" (click)="changeCouleur()" class="btn   float-end"><i class="fa-solid fa-cart-shopping fs-4 panier " > </i></button>

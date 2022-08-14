@@ -1,4 +1,9 @@
 <div class="container">
+    <div class="bg-dark py-3 my-2">
+       <h3 class="text-center title">GESTION DES COMMANDES</h3>
+    </div>
+    
+    <h4 class="my-3">Les commandes <span class="bg-dark text-white px-3">d'aujourd'hui</span></h4>
     <table class="table">
         <thead>
             <tr class="text-center">
@@ -7,20 +12,23 @@
                 <th scope="col">Heure</th>
                 <th scope="col">Etat</th>
                 <th scope="col">Client</th>
+                <th scope="col">Zone</th>
                 <th scope="col">Operations</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr class="" *ngFor="let commande of tableauDeCommande ; let i=index">
+            <tr class="" *ngFor="let commande of lesCmdValidOuEnCours ; let i=index" >
                 <th scope="row">{{i}}</th>
                 <td>{{commande.numCmd}}</td>
                 <td>{{commande.dateCmd|date:"HH:MM"}}</td>
                 <td>{{commande.etatCmd}}</td>
                 <td>{{commande.client.prenom}}</td>
+                <td>{{commande.zone.nomZone}}</td>
                 <td class="">
-                    <button (click)="changeEtatCmd(commande.id,'valider')" type="button" class="{{couleur}} mx-2">{{titre}}</button>
-                    <button (click)="changeEtatCmd(commande.id,'terminer')" type="button" class="btn btn-danger">Terminer</button>
+                    <button *ngIf="commande.etatCmd!='valider'" (click)="changeEtatCmd(commande.id,'valider')" type="button" class="{{couleur}} mx-2">{{titre}}</button>
+                    <button *ngIf="commande.etatCmd=='valider'" (click)="changeEtatCmd(commande.id,'annuler')" type="button" class="btn btn-danger">Annuler</button>
                     <button [routerLink]="['/cmd',commande.id]" type="button" class="btn btn-warning mx-2">Detail</button>
+                    <button (click)="changeEtatCmd(commande.id,'terminer')" type="button" class="btn btn-danger">Terminer</button>
                 </td>
 
             </tr>

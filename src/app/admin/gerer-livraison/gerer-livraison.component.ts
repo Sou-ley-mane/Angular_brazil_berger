@@ -51,7 +51,7 @@ listDesLivreur(){
         this.lesCmdDesZone.commandes.forEach(commande=>{
           if (commande.etatCmd=="terminer") {
            this.commandes.push(commande)
-           console.log(this.commandes);
+          //  console.log(this.commandes);
           }
         
         })
@@ -70,7 +70,7 @@ listDesLivreur(){
     }else{
       this.gestionDesCommandes.retirerDansLivraison(commande)
     }
-    console.log(this.gestionDesCommandes.CommandesAliver);
+    // console.log(this.gestionDesCommandes.CommandesAliver);
   }
 
 

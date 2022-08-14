@@ -12,6 +12,7 @@ import { ListeClientCmdComponent } from './liste-client-cmd/liste-client-cmd.com
 import { PanierComponent } from './panier/panier.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'connexion'},
   {path:'connexion',component:FormConnexionComponent},
   {path:'panier',component:PanierComponent},
   {path:'',component:CatalogueComponent},
@@ -25,9 +26,6 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
  
-
-
-
   {path:'**',redirectTo:'/',pathMatch:'full'}
  
 ];

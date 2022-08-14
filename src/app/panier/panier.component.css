@@ -77,3 +77,8 @@
     align-items: center;
     margin-top: 0;
 }
+.lesComplements{
+    font-weight: bold;
+    color: black;
+    background-color: goldenrod;
+}

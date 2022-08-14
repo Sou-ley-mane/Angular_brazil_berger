@@ -15,12 +15,12 @@
     </thead>
     <tbody>
 
-      <tr *ngFor="let zone of zonesCmdTerminer">
-        <th scope="row">2</th>
-        <td>{{zone.nomZone}}</td>
-        <td>{{zone.etatZone}}</td>
-        <td>{{zone.coutLivraison}}</td>
-        <!-- <td><button (click)="getLaZones(zone)" type="button" class="btn btn-dark">Voir Commandes</button></td> -->
+      <tr *ngFor="let unezone of meszone;let i=index">
+        <th scope="row">{{i}}</th>
+        <td>{{unezone.nomZone}}</td>
+        <td>{{unezone.etatZone}}</td>
+        <td>{{unezone.coutLivraison}}</td>
+        <td><button (click)="getLaZones(unezone)" type="button" class="btn btn-dark">Voir Commandes</button></td>
       </tr>
    
     </tbody>

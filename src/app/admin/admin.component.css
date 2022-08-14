@@ -1,0 +1,22 @@
+.zoneLiv{
+    /* border: 3px solid red; */
+    width: auto;
+    height: 50vh;
+}
+.comd{
+    border: 2px solid green;
+    height: 80vh;
+    width: 69vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.parent{
+    justify-content: space-around;
+}
+.boutonLiv{
+    justify-content: space-around;
+}
+.titre,
+.titrezone{
+    color: white;
+}
