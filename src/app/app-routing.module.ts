@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AjouterBurgerComponent } from './ajouter-burger/ajouter-burger.component';
 import { BoissonComponent } from './boisson/boisson.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
 import { ComplementComponent } from './complement/complement.component';
@@ -23,6 +24,8 @@ const routes: Routes = [
   {path:'commande/:id',component:DetailCommandeComponent},
   {path:'commandes',component:GestionDesCommandeComponent},
   {path:'cmd/:id',component:GestionDesCommandeComponent},
+  {path:'addBurger',component:AjouterBurgerComponent},
+
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
  

@@ -13,6 +13,7 @@ tableauDeCommande:any[]=[]
 couleur:string='btn btn-success '
 titre:string='valider'
  lesCmdValidOuEnCours:any[]=[]
+ pages:number=1
   constructor(private gestionCommade:GestionCommandeService,private activeRoue:ActivatedRoute,private http:HttpClient) { }
 
 

@@ -8,3 +8,10 @@ export interface IBurger{
         quantites:number 
 }
     
+
+export interface burger{
+                nomProduit?: any,
+                prix?: any,
+                image?: any
+              
+}

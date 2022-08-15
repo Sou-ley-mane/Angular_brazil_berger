@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr class="" *ngFor="let commande of lesCmdValidOuEnCours ; let i=index" >
+            <tr class="" *ngFor="let commande of lesCmdValidOuEnCours | paginate:{itemsPerPage: 3, currentPage: pages}; let i=index" >
                 <th scope="row">{{i}}</th>
                 <td>{{commande.numCmd}}</td>
                 <td>{{commande.dateCmd|date:"HH:MM"}}</td>
@@ -34,4 +34,6 @@
             </tr>
         </tbody>
     </table>
+
+    <pagination-controls (pageChange)="pages = $event"></pagination-controls>
 </div>

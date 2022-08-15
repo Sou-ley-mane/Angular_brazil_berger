@@ -10,6 +10,7 @@ import { AuthentificationService } from '../service/authentification.service';
 })
 export class FormConnexionComponent implements OnInit {
   loginForm!: FormGroup;
+  tableauxUsers:any[]=[]
   // controle des messages d'erreurs a l'aide de cette propriété
   isSubmitted  =  false;
   constructor(
@@ -20,11 +21,14 @@ export class FormConnexionComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
     // validation
     this.loginForm=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required, Validators.minLength(6)]]
     })
+    
+    this.lesUsersValides()
   }
 
   // Getter pour faciliter le controle
@@ -32,16 +36,51 @@ export class FormConnexionComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  lesUsersValides(){
+    this.serviceAuth.UtilisateurValides().subscribe(users=>{
+      this.tableauxUsers=users
+      // console.log(this.tableauxUsers);
+    })
+  }
+
+  // FONCTION POUR VERIFIER L'INFORMATION DE L'UTILISATEUR
+  verifInfoUser(infoUtilisateur:any):boolean{
+  let  bonInfo=false
+  // console.log("Les users");
+   let users:any=this.tableauxUsers;
+   users.forEach((element:any) => {
+    if (element.email==infoUtilisateur.email ) {
+      bonInfo=true
+    }else{
+      bonInfo=bonInfo
+    }
+   });
+   return bonInfo
+  }
+
+
+
   seConnecter(){
-    console.log(this.loginForm.value);
-    this.isSubmitted=true
-if (this.loginForm.invalid) {
-  return
-}
-this.serviceAuth.seConnecter(this.loginForm.value)
-this.router.navigateByUrl('/commandes')
+    // this.isSubmitted=true
+    if (this.verifInfoUser(this.loginForm.value)) {
+      this.isSubmitted=true
+      if (this.loginForm.invalid) {
+        return
+      }
+      this.serviceAuth.seConnecter(this.loginForm.value)
+      this.router.navigateByUrl('/commandes')
+    }else{
+      // alert("Merci de verifier votre email")
+      
+      // alert();
+      
+    }
+    
+
 
   }
+
+
 
 
 

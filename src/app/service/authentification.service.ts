@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Utilisateur } from './modeles/utilisateur';
 
 @Injectable({
@@ -26,5 +27,12 @@ export class AuthentificationService {
   public deconnecter(){
     localStorage.removeItem('ACCESS_TOKEN');
   }
+
+ 
+
+UtilisateurValides(): Observable<any> {
+  return this.http.get<any>('http://localhost:8000/api/users');
+}
+
 
 }

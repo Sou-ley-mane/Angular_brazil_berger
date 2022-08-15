@@ -29,6 +29,8 @@ import { GestionDesCommandeComponent } from './gestion-des-commande/gestion-des-
 import { LivraisonComponent } from './livraison/livraison.component';
 import { BoissonComplementComponent } from './boisson-complement/boisson-complement.component';
 import { RegistreComponent } from './registre/registre.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AjouterBurgerComponent } from './ajouter-burger/ajouter-burger.component';
 
 
 @NgModule({
@@ -58,6 +60,7 @@ import { RegistreComponent } from './registre/registre.component';
     LivraisonComponent,
     BoissonComplementComponent,
     RegistreComponent,
+    AjouterBurgerComponent,
    
   ],
   imports: [
@@ -66,7 +69,8 @@ import { RegistreComponent } from './registre/registre.component';
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
  
   ],
   providers: [], 
