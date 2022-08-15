@@ -1,10 +1,10 @@
-<div>
-    <h1 class="text-center">GESTION DES PRODUITS (BURGERS)</h1>
-
+<div class="d-flex justify-content-around align-items-center bg-warning py-3">
+    <h3 class="text-center ">GESTION DES PRODUITS (BURGERS)</h3>
+    <button routerLink="/catalogue" class="btn btn-dark mt-4" >VOIR CATALOGUE</button>
 </div>
-  <div class="container">
+  <div class="container mt-5 bg-info p-5">
 <form [formGroup]="myForm" (ngSubmit)="submit()">
-     
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:300px">
     <div class="form-group">
         <label for="name">Nom Produit</label>
         <input 
@@ -53,7 +53,7 @@
         </div>
     </div>
     
-    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:300px">
+   
         
     <button class="btn btn-danger mt-4" type="submit">Ajouter</button>
 </form>

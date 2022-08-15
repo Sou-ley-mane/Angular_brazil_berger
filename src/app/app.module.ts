@@ -6,7 +6,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { BurgerComponent } from './burger/burger.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { CadreProduitComponent } from './cadre-produit/cadre-produit.component';
 import { HeaderCatalogueComponent } from './header-catalogue/header-catalogue.component';
 import { FiltreCatalogueComponent } from './filtre-catalogue/filtre-catalogue.component';
@@ -31,6 +31,7 @@ import { BoissonComplementComponent } from './boisson-complement/boisson-complem
 import { RegistreComponent } from './registre/registre.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AjouterBurgerComponent } from './ajouter-burger/ajouter-burger.component';
+import { AuthinterceptorInterceptor } from './authinterceptor.interceptor';
 
 
 @NgModule({
@@ -73,7 +74,9 @@ import { AjouterBurgerComponent } from './ajouter-burger/ajouter-burger.componen
     NgxPaginationModule
  
   ],
-  providers: [], 
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthinterceptorInterceptor , multi: true},
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
