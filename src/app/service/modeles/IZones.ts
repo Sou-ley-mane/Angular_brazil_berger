@@ -14,14 +14,15 @@ export interface ILvreur{
         telephoneLivreur: string,
         email: string,
         prenom: string,
-        nom: string
+        nom: string,
+        etat: string,
       
 }
 
 
 export interface ILivraison{
         livreur: string,
-        commandes:string []
+        commandes:any[]
         zone:string
       
 }

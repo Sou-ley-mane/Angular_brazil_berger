@@ -1,0 +1,24 @@
+.imageProd{
+    height: 200px; width:300px;
+}
+
+
+
+.inputImage{
+    display: none;
+}
+
+.lesComplement{
+  min-height: 20vh;
+    border: 2px solid red ;
+    background-color: orange;
+    overflow-x: auto;
+}
+
+.changer{
+    width:300px
+}
+.frite{
+    border: 2px solid green;
+    overflow-x: auto;
+}

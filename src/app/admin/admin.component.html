@@ -2,23 +2,80 @@
 <div class="d-flex  zoneLiv">
 <div class="">
     <div class="bg-dark titrezone p-3">
-    <h3>LES ZONES A LIVRER</h3>
+    <h3>GESTION DES LIVRAISONS</h3>
     </div>
-    <!-- <p *ngFor="let zone of nosZones">{{zone.nomZone}}</p> -->
-    <app-zones></app-zones>
+    <table class="table">
+        <thead>
+          <tr >
+            <th scope="col">#</th>
+            <th scope="col">Matrice</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Zone</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let livraison of lesLivraisons ">
+            <th scope="row">1</th>
+            <td>{{livraison.livreur.matricule}}</td>
+            <td>{{livraison.livreur.prenom}}</td>
+            <td>{{livraison.livreur.nom}}</td>
+            <td>{{livraison.zone.nomZone}}</td>
+            <td>
+                <button  (click)="gererLivreur(livraison)"  (click)="getCommandesLivraison(livraison)" type="button" class="btn btn-info ">Voir les commandes</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
     </div>
 
 </div>
 
 <div class="comd">
     <div class="bg-dark w-100 text-center py-3 d-flex boutonLiv">
-        <h3 class="titre">CHOISISSEZ LES COMMANDES A LIVRER</h3>
-        <button data-bs-toggle="modal" data-bs-target="#exampleModal"  type="button" class="btn btn-danger ">Choisir un livreur</button>
-
+        <h3 class="titre">LES COMMANDES A LIVRER</h3>
+        <button routerLink="/commandes" type="button" class="btn btn-danger ">Commandes</button>
+        <button [disabled]=" activeBouton"  (click)="changeEtatLivreur()" type="button" class="btn btn-success">Livraison Terminer</button>
     </div>
   
     <!-- <app-gerer-livraison></app-gerer-livraison> -->
-les commandes a livrer
+<!-- les commandes a livrer -->
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Numéro commande</th>
+        <th scope="col">Date</th>
+        <th scope="col">Etat</th>
+        <th scope="col">Paiement</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commadeliv of commandes; let i=index ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{commadeliv.numCmd}}</td>
+        <td>{{commadeliv. dateCmd}}</td>
+        <td>{{commadeliv.etatCmd}}</td>
+        <td>{{commadeliv.etatPaiement}}</td>
+        <td class="d-flex justify-content-around">
+          <p *ngIf="commadeliv.etatCmd=='livrer'">Commande Livrer</p>
+          <p *ngIf="commadeliv.etatCmd=='non livrer'" >Commande non Livrer</p>
+            <button *ngIf="commadeliv.etatCmd=='cours'" (click)="wawOK(commadeliv.id,'livrer')" type="button" class="btn btn-primary">Livrer</button>
+            <button *ngIf="commadeliv.etatCmd=='cours'" (click)="wawOK(commadeliv.id,'non livrer')" type="button" class="btn btn-dark">Non Livrer </button>   
+        </td>
+
+      </tr>
+  
+    </tbody>
+  </table>
+
+
     </div>
 
 

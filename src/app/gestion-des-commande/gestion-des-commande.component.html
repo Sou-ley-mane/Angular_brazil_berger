@@ -3,7 +3,10 @@
        <h3 class="text-center title">GESTION DES COMMANDES</h3>
     </div>
     
-    <h4 class="my-3">Les commandes <span class="bg-dark text-white px-3">d'aujourd'hui</span></h4>
+    <h4 class="my-3">Les commandes <span class=" text-white px-3">   
+         <div class="search-hero w-25 m-2 border border-3 border-danger">
+        <input [(ngModel)]="searchText" class="form-control" type="date" name="search" autocomplete="off" placeholder="  Recherche" max="{{searchText}}">
+    </div></span></h4>
     <table class="table">
         <thead>
             <tr class="text-center">
@@ -17,17 +20,17 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            <tr class="" *ngFor="let commande of lesCmdValidOuEnCours | paginate:{itemsPerPage: 3, currentPage: pages}; let i=index" >
+            <tr class="" *ngFor="let commande of lesCmdValidOuEnCours | filter:searchText | paginate:{itemsPerPage: 10, currentPage: pages}; let i=index" >
                 <th scope="row">{{i}}</th>
                 <td>{{commande.numCmd}}</td>
-                <td>{{commande.dateCmd|date:"HH:MM"}}</td>
+                <td>{{commande.dateCmd|date:"HH:mm"}}</td>
                 <td>{{commande.etatCmd}}</td>
                 <td>{{commande.client.prenom}}</td>
                 <td>{{commande.zone.nomZone}}</td>
                 <td class="">
                     <button *ngIf="commande.etatCmd!='valider'" (click)="changeEtatCmd(commande.id,'valider')" type="button" class="{{couleur}} mx-2">{{titre}}</button>
                     <button *ngIf="commande.etatCmd=='valider'" (click)="changeEtatCmd(commande.id,'annuler')" type="button" class="btn btn-danger">Annuler</button>
-                    <button [routerLink]="['/cmd',commande.id]" type="button" class="btn btn-warning mx-2">Detail</button>
+                    <!-- <button [routerLink]="['/cmd',commande.id]" type="button" class="btn btn-warning mx-2">Detail</button> -->
                     <button (click)="changeEtatCmd(commande.id,'terminer')" type="button" class="btn btn-danger">Terminer</button>
                 </td>
 

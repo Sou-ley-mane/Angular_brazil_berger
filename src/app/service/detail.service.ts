@@ -97,23 +97,20 @@ export class DetailService {
   }
 
   supprimer(leProduit: IMenu | IBurger) {
-    // if (!this.verifieExistanceProduit(leProduit)) {
-    //   let table=this.getItems()
-    //   table.splice(table.indexOf(leProduit),1)
-    //   localStorage.setItem('products', JSON.stringify(table));
-
-    // }
     this.items$
       .pipe(
         take(1),
         map((products) => {
           products.splice(products.indexOf(leProduit), 1);
-          this.getPrix() - leProduit.prix;
+          // this.getPrix() - leProduit.prix;
           localStorage.setItem('products', JSON.stringify(products));
         })
-      )
+      ) 
       .subscribe();
   }
+
+
+
 
   calcul(product: IMenu | IBurger): number {
     this.prix += product.prix * product.quantites;

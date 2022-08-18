@@ -13,7 +13,7 @@
                 <li class="nav-item" *ngIf="siConnecter()">
                     <a class="nav-link text-white active fs-4" aria-current="page" routerLink="/client">Commandes</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="siConnecter()">
                     <a class="nav-link text-white fs-4" routerLink="/addBurger">Add Burger</a>
                 </li>
                 <li class="nav-item">
@@ -28,11 +28,14 @@
                 <li class="nav-item" *ngIf="siConnecter()">
                     <a class="nav-link text-white fs-4" routerLink="/commandes">Admin</a>
                 </li>
+                <li class="nav-item" *ngIf="siConnecter()">
+                    <a class="nav-link text-white fs-4" routerLink="/admin/commandes/zone">Zones</a>
+                </li>
                 <li class="nav-item">
                     <a routerLink="/panier" class="nav-link text-white fs-4"><i class="fa-solid fa-cart-shopping fs-2  text-white panier" ></i><span  class="badge rounded-pill badge-notification bg-danger">{{( items$ | async).length}} </span></a>
                 </li>
                 <li class="nav-item bg-black"  *ngIf="siConnecter()">
-                    <a class="nav-link text-white fs-4 deconnexion" (click)="deconnecter()" >Deconnion</a>
+                    <a class="nav-link text-white fs-4 deconnexion" (click)="deconnecter()" >Deconnexion</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">

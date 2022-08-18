@@ -10,6 +10,17 @@ import { GestionCommandeService } from '../service/gestion-commande.service';
 })
 export class GestionDesCommandeComponent implements OnInit {
 tableauDeCommande:any[]=[]
+formateDateToday(){
+  let date=new Date();
+  let day =date.toLocaleDateString().slice(0,2);
+  let month = date.toLocaleDateString().slice(3,5);
+  let year= date.toLocaleDateString().slice(6);
+  return year+"-"+month+"-"+day ;
+  //2022-08-10
+}
+//  d:Date = new Date();
+  // date = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+searchText=this.formateDateToday();
 couleur:string='btn btn-success '
 titre:string='valider'
  lesCmdValidOuEnCours:any[]=[]
@@ -50,8 +61,9 @@ changerCouleur(){
 
     this.gestionCommade.getCommandes().subscribe(data=> {
       this.tableauDeCommande=data  
+      // ****************Test
       this.tableauDeCommande.forEach(commande=>{
-        if (commande.etatCmd=='valider'|| commande.etatCmd=='cours') {
+        if (commande.etatCmd=='valider' || commande.etatCmd=='En cours') {
         this.lesCmdValidOuEnCours.push(commande)
           
         }

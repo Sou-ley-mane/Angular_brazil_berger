@@ -1,6 +1,13 @@
 
 
-<div class=" container w-25">
+<div class=" container w-50 bg-secondary text-white p-3 d-flex justify-content-around align-items-center">
+  <div class="bg-warning p-2">
+    <h3>
+     BRAZIL BURGER ATHENTIFICATION
+    </h3>
+    <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="PHOTO">
+  </div>
+  <!-- Formulaire -->
 <form [formGroup]="loginForm" (ngSubmit)="seConnecter()">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>   
@@ -23,7 +30,7 @@
       <div><font color="red">Le mot de passe est requis</font></div>
     </div>
     </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button>
+    <button type="submit" class="btn btn-info">Se connecter</button>
   </form>
 
 </div>

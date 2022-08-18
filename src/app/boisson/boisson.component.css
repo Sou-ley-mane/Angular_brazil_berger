@@ -10,3 +10,8 @@
 .boutons {
     width: 5.1vw;
 }
+.select{
+    height: 3vh;
+    width: 3vw;
+    /* border: 2px solid orangered; */
+}

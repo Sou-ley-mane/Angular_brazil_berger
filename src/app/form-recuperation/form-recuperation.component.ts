@@ -26,10 +26,16 @@ export class FormRecuperationComponent implements OnInit {
   result = ""
  mesZones:any
  input:any
+ zoneClient:any
+ zoneDisponible:any
   constructor(private zone:ZonesService,private gestionCmde:GestionCommandeService,private detailService :DetailService,private router:Router) { }
 
-  getZoneClient(){
-    alert("ohhhhhh")
+  getZoneClient(input:HTMLInputElement){
+   
+    this.zoneClient=input.value
+    // alert( this.zoneClient)
+    // alert(this.zoneClient)
+    // alert("ohhhhhh")
 
   }
   viderPanier(tableau:any[]){ 
@@ -45,25 +51,39 @@ export class FormRecuperationComponent implements OnInit {
    
     let body:ICommande ={
       Produits:this.operationCmd(),
-      zone:"/api/zones/2"
+      // zone:"/api/zones/2"
+      zone:"/api/zones/"+this.zoneClient
+
     }
-    // console.log(body);
+    console.log(body);
     // alert("azerty") 
-  //  this.gestionCmde.AddCmd(body)
+   this.gestionCmde.AddCmd(body)
    this.viderPanier(this.detailService.getItems());
    this.router.navigateByUrl('')
+  //  location.reload()
    
   }
 
 
-// coche(){
-//   this.zone.getZones().subscribe(data=>{
-//     this.mesZones=data
-//     return this.mesZones
-//     //  console.log(data);
-//    })
+coche(){
+  this.zone.getZones().subscribe(data=>{
+    this.mesZones=data
+    this.mesZones.forEach((element:IZones) => {
+      if (element.etatZone=='accessible') {
+        this.zoneDisponible.push(element)
+        
+      }
+      
+    });
+    // return this.mesZones
+    //  console.log(data);
+   })
 
-// }
+}
+
+donneZones(){
+  return this.mesZones
+}
 
 operationCmd(){
   let produits:ILigneCmd[]=[]
@@ -77,7 +97,19 @@ operationCmd(){
   return produits
 }
   ngOnInit(): void {
- 
+    this.zone.getZones().subscribe(data=>{
+      this.mesZones=data
+      this.mesZones.forEach((element:IZones) => {
+        if (element.etatZone=='accessible') {
+          this.zoneDisponible.push(element)
+          
+        }
+        
+      });
+      // return this.mesZones
+      //  console.log(data);
+     })
+//  this.coche()
     
   }
 

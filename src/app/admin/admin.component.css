@@ -6,7 +6,7 @@
 .comd{
     border: 2px solid green;
     height: 80vh;
-    width: 69vw;
+    width: 50vw;
     overflow-y: auto;
     overflow-x: hidden;
 }

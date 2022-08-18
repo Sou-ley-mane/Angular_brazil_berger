@@ -1,10 +1,11 @@
-<div class="float-end mx-3"> 
+<!-- <div class="float-end mx-3"> 
     <button [disabled]="desactive()"  (click)=" addLivraison()" type="button" class="btn btn-primary" >
         Livrer
       </button>
-</div>
+</div> -->
 
 <div class="container mt-3">
+  <h3>Les commandes de : <span>commandes</span></h3>
 <table class="table">
     <thead>
       <tr>
@@ -20,9 +21,9 @@
         <td>{{commande.numCmd}}</td>
         <td>{{commande.etatCmd}}</td>
         <td>{{commande.dateCmd| date:"HH:MM"}}</td>
-        <td><input #input (click)=" getValueCheck(commande,input)" type="checkbox"></td>
+        <td><input #input (click)=" getValueCheck(commande,input)" type="checkbox" (click)="getLaZone(commande)"></td>
       </tr>
-
+          
     </tbody>
   </table>
 </div>
@@ -31,7 +32,7 @@
 <!-- Modal Affiche  livreur -->
 <!-- Button Choix livrel -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-   Choisi
+   Choisi un livreur
   </button>
   
   <!-- Modal -->
@@ -43,7 +44,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div *ngFor="let livreur of lesLivreurs" class="d-flex justify-content-around">
+          <div *ngFor="let livreur of lesLivreursDisponible"  class="d-flex justify-content-around">
 
             <span>{{livreur.matricule}}</span><span>{{livreur.prenom}}</span><span>{{livreur.telephoneLivreur}}</span><input #input value="{{livreur.id}}" name="livreur"  type="radio" (input)="getLivreur(input)">
           </div>

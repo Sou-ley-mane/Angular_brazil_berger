@@ -11,6 +11,7 @@ import { GestionCommandeService } from '../service/gestion-commande.service';
 })
 export class AjouterBurgerComponent implements OnInit {
   // Source de l'image
+  vue:boolean=true
   imageSrc!: string;
 // Formulaire reactive
   myForm = new FormGroup({
@@ -20,6 +21,15 @@ export class AjouterBurgerComponent implements OnInit {
    fileSource: new FormControl('', [Validators.required])
  });
   constructor(private http: HttpClient,private gestionCommande:GestionCommandeService) { }
+  // AFFICHER LES COMPLEMENTS pour les menus
+  afficheComplement(faire:string){
+    if (faire=='menu') {
+      this.vue=false
+    }else if (faire=='autres') {
+      this.vue=true
+      
+    }
+  }
   // Le getter
   get f(){
     return this.myForm.controls;
@@ -44,7 +54,7 @@ export class AjouterBurgerComponent implements OnInit {
   }
 
   submit(){
-    // console.log(this.myForm.value);
+    // console.log(this.myForm.value.fileSource);
     let body:burger={
       nomProduit: this.myForm.value.name,
       prix: this.myForm.value.prix,

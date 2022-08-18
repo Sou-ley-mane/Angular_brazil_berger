@@ -13,6 +13,9 @@ import { ZonesService } from 'src/app/service/zones.service';
 })
 export class GererLivraisonComponent implements OnInit {
 lesLivreurs:any
+lesLivreursDisponible:any[]=[]
+
+
 
   constructor(private gestionDesCommandes:GestionCommandeService,private zone:ZonesService,private route:ActivatedRoute,private router :Router) { }
 
@@ -32,13 +35,34 @@ return this.gestionDesCommandes.activation()
    this.idlivreur=+input.value
   }
 
+  getLaZone(commande:Commande){
+    console.log(commande);
+    
+    // alert(commande.zone.id)
+
+  }
+
+  leszones(){
+    this.zone.getZones().subscribe(zones=>{
+      console.log(zones);
+      
+    })
+  }
 
 listDesLivreur(){
   this.gestionDesCommandes.getLivreur().subscribe((data:ILvreur)=>{
     this.lesLivreurs=data
+    this.lesLivreurs.forEach((livreur:ILvreur) => {
+      if (livreur.etat=='disponible') {
+        this.lesLivreursDisponible.push(livreur)
+      }
+      
+    });
+    console.log(this.lesLivreursDisponible);
+    
     console.log(this.lesLivreurs);
   })
-
+// return  this.lesLivreursDisponible
 }
 // livreurs(){
 //   return this.lesLivreurs
@@ -59,6 +83,7 @@ listDesLivreur(){
     })
 
     this.listDesLivreur()
+    this.leszones()
 
 
   }
@@ -83,15 +108,20 @@ listDesLivreur(){
     this.gestionDesCommandes.CommandesAliver.forEach(cmd=>{
       tab.push("/api/commandes/"+cmd.id)
     })
-console.log(tab); 
+// console.log(tab); 
 
     let body:ILivraison ={
         livreur: "/api/livreurs/"+this.idlivreur,
         commandes:tab, 
-        zone: "/api/zones/1"
+        zone: "/api/zones/2"
     }
-
+if (body.commandes.length>0) {
   this.gestionDesCommandes.AddLivraison(body);
+  
+}else{
+  alert("veillez selectionner au moins une commande")
+}
+
   }
   
 

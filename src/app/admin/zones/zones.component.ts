@@ -19,29 +19,60 @@ export class ZonesComponent implements OnInit {
      }
 meszone:any
 zonesCmdTerminer:IZones[]=[]
+zoneAafficher:any[]=[]
   ngOnInit(): void {
 
     this.zones.getZones().subscribe(data=>{
+      // console.log(data.commandes);
       this.meszone=data
-    this.meszone.forEach((zone:IZones)=>{
-      zone.commandes.forEach(commande=>{
-        if (commande.etatCmd=="terminer") {
+      this.meszone.forEach((zone:IZones) => {
+        if (zone.commandes.length>0) {
           this.zonesCmdTerminer.push(zone)
+         
+          
         }
+        
+      });
+      // console.log(this.zonesCmdTerminer);
+      this.zonesCmdTerminer.forEach(zone=>{
+        // console.log(zone);
+        zone.commandes.forEach(commande=>{
+          if (commande.etatCmd=='terminer') {
+            this.zoneAafficher.push(zone)
+            // console.log(zone);
+          }
+        })
+        
       })
-    })
-    // this.zonesCmdTerminer=this.filter(this.zonesCmdTerminer)
+      console.log(this.zoneAafficher);
+      
+      
+      // console.log();
+
+
+
+      
+    // this.meszone.forEach((zone:IZones)=>{
+    //   if (this.meszone.commande) {
+        
+    //   }
+    //   zone.commandes.forEach(commande=>{
+    //     if (commande.etatCmd=="terminer") {
+    //       this.zonesCmdTerminer.push(zone)
+    //     }
+    //   })
+    // })
+    this.zonesCmdTerminer=this.filter(this.zoneAafficher)
    
     
     })
 
   }
 
-// filter(tab:any[]){
-//   return tab.filter((element,i)=>
-//   i===tab.indexOf(element)
-//   )
-
-// }
+filter(tab:any[]){
+  return tab.filter((element,i)=>
+  i===tab.indexOf(element)
+  )
+}
 
 }

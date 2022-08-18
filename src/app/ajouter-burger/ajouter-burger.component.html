@@ -2,9 +2,29 @@
     <h3 class="text-center ">GESTION DES PRODUITS (BURGERS)</h3>
     <button routerLink="/catalogue" class="btn btn-dark mt-4" >VOIR CATALOGUE</button>
 </div>
-  <div class="container mt-5 bg-info p-5">
+  <div class="container mt-5 bg-secondary p-5">
+    <div  class="d-flex align-items-center  m-2 float-end">
+        <button (click)="afficheComplement('menu')" type="button" class="btn btn-success m-2">MENU</button>
+        <div class="">
+            <button (click)="afficheComplement('autres')"  type="button" class="btn btn-danger m-2">AUTRES</button>
+            <select name="" id="" class="p-2">
+                <option value="">Burger</option>
+                <option value="">Boisson</option>
+                <option value="">Frite</option>
+            </select>
+        </div>
+ 
+    </div>
 <form [formGroup]="myForm" (ngSubmit)="submit()">
-    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:300px">
+    <div   class="bg-body imageProd">
+        <label  *ngIf="!imageSrc" for="file">Image du produit</label>
+        <img  [src]="imageSrc" *ngIf="imageSrc" style="height: 200px; width:300px" >
+    </div>
+    <div class="bg-dark p-3 changer d-flex justify-content-around">
+        <label for="file" class="text-white ">Changer Image</label>
+        <span><i  class="fa-solid fa-person-through-window text-white fa-2x"></i></span>
+    </div>
+   
     <div class="form-group">
         <label for="name">Nom Produit</label>
         <input 
@@ -40,9 +60,9 @@
 
     <!-- ***************************************************** -->
     
-    <div class="form-group">
+    <div class="form-group inputImage">
         <label for="file">Image du produit</label>
-        <input 
+        <input  
             formControlName="file"
             id="file" 
             type="file" 
@@ -51,10 +71,30 @@
         <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
             <!-- <div *ngIf="f.file.errors.required">File is required.</div> -->
         </div>
-    </div>
-    
-   
+    </div> 
+    <div class="form-group" [hidden]="vue">
+        <h3>Choisissez Au moins un complement (Boisson ou Frite)</h3>
+    <div class="lesComplement mt-4 d-flex justify-content-between py-3 px-2">
+        <div class="frite p-2 ">
+            <p>BURGERS</p>
+            <app-boisson></app-boisson>
         
+
+        </div>
+        <div class="frite p-2">
+            <p>BOISSONS</p>
+            <app-boisson></app-boisson>
+           
+        </div>
+        <div class="frite p-2">
+            <p>FRITES</p>
+            <app-boisson></app-boisson>
+        </div>
+
+    </div>
+</div>
+
+<!-- Boisson ou Frite -->
     <button class="btn btn-danger mt-4" type="submit">Ajouter</button>
 </form>
-</div> 
+</div>  
