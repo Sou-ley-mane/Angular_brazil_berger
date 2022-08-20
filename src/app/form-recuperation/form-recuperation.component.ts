@@ -28,8 +28,24 @@ export class FormRecuperationComponent implements OnInit {
  input:any
  zoneClient:any
  zoneDisponible:any
-  constructor(private zone:ZonesService,private gestionCmde:GestionCommandeService,private detailService :DetailService,private router:Router) { }
 
+ sipascommande:boolean=true
+ 
+  constructor(private zone:ZonesService,private gestionCmde:GestionCommandeService,private detailService :DetailService,private router:Router) { }
+surveille(){
+  if (this.detailService.getItems().length>0) {
+    this. sipascommande=false
+    
+  }
+}
+
+  prixLiv(prix:number){
+    localStorage.setItem('livraison', JSON.stringify(prix));
+    location.reload()
+    // this.gestionCmde.lePrixDeLaLivraison=prix
+    // this.gestionCmde.lePrixDeLaLivraison;
+    // console.log(prix);
+  }
   getZoneClient(input:HTMLInputElement){
    
     this.zoneClient=input.value
@@ -110,6 +126,7 @@ operationCmd(){
       //  console.log(data);
      })
 //  this.coche()
+this.surveille()
     
   }
 

@@ -18,6 +18,7 @@ export class GestionCommandeService {
  laQuantite!:number
  panier:any=this.serviceDetail.getItems()
  CommandesAliver:Commande[]=[]
+ lePrixDeLaLivraison:number=0
 
  urlCmd="http://127.0.0.1:8000/api/commandes"
 //  urlOneCmd="http://127.0.0.1:8000/api/commandes/"

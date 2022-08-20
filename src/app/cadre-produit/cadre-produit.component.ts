@@ -40,7 +40,9 @@ testExistance(produit:any){
 }
 addToCart(produitChoix:IMenu|IBurger){
   this.auPanier.addToCart(produitChoix)
-  //  this.auPanier.calcul(produitChoix);
+  //  this.auPanier.calcule()
+    // this.auPanier.calcul(produitChoix);
+ 
 
 }
 

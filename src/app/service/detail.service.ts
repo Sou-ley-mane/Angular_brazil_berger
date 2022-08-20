@@ -10,10 +10,12 @@ export class DetailService {
   TableauProduit: any[] = [];
   // *********************************************
   private itemsSubject = new BehaviorSubject<any>([]);
+  // On considere le subjest comme observable
   items$ = this.itemsSubject.asObservable();
   // ***********************************************
   total: number[] = [];
-  prix: number = 0;
+  prix!: number;
+  // montantTotal:number=0
 
   constructor() {
     let existingCartItems = JSON.parse(
@@ -44,8 +46,7 @@ export class DetailService {
   // ************************************************************************************
 
   addToCart(product: IMenu | IBurger) {
-    // product.quantites=0
-    // this.nombre=this.nombre+1
+ 
     this.items$
       .pipe(
         take(1),
@@ -62,6 +63,7 @@ export class DetailService {
             });
           }
           localStorage.setItem('products', JSON.stringify(products));
+          // this.calcule()
         })
       )
       .subscribe();
@@ -97,46 +99,65 @@ export class DetailService {
   }
 
   supprimer(leProduit: IMenu | IBurger) {
+    let nouvlle:number=0
     this.items$
       .pipe(
         take(1),
         map((products) => {
+         products.forEach((element:any) => {
+          nouvlle+=element.prix
+         });
+         console.log(nouvlle-leProduit.prix);
+         localStorage.setItem('total', JSON.stringify(nouvlle-leProduit.prix));
           products.splice(products.indexOf(leProduit), 1);
-          // this.getPrix() - leProduit.prix;
           localStorage.setItem('products', JSON.stringify(products));
+         
         })
       ) 
-      .subscribe();
+      .subscribe(data=>{
+        // console.log(data);
+      });
+      location.reload()
   }
 
+  // nouvellePrix(produit:any){
+  //   let som=0
+  //   this.getItems().forEach((element:any) => {
+  //   som+=element.prix-produit.prix
+  //   });
+  //  return  som
+  //   // console.log(som-produit.prix);
+    
+  // }
 
 
 
-  calcul(product: IMenu | IBurger): number {
-    this.prix += product.prix * product.quantites;
-    return this.prix;
-    // console.log(this.prix);
-  }
+
+    calcule() {
+    let montantTotal:number=0
+  this.items$.subscribe((p:any)=>{
+    p.forEach((element:any)=>{
+      // console.log(element.prix*element.quantites);
+      montantTotal+=element.prix*element.quantites
+      
+    })
+    this.prix=montantTotal
+   
+    localStorage.setItem('total', JSON.stringify(this.prix));
+  })
+
+ }
 
   getPrix() {
-    return this.prix;
+    return JSON.parse(localStorage.getItem('total') || '[]');
   }
 
-  // prixDuProduit(product:IMenu|IBurger,qt:number=1){
-  //    this.items$.pipe(
-  //     take(1),
-  //     map((products) => {
-  //       product.prix=this.calcul(product,qt)
-  //       products.push(product);
-  //       localStorage.setItem('products', JSON.stringify(products));
-  //     }),
-  //   ).subscribe();
+  diokhmaPrixLiv(key:string){
+    return JSON.parse(localStorage.getItem(key) || '[]');
+  }
 
-  // }
-
-  // oo(qt:number){
-  //   this.items$.forEach(data=>{
-  //     data.prix*qt
-  //   })
-  // }
+  supprimeKey(key:string){
+      localStorage.removeItem(key);
+  }
+  
 }

@@ -22,6 +22,7 @@ export class PanierComponent implements OnInit {
 
   ngOnInit(): void {
     this.mesProduit=this.panier.items$
+    this.panier.calcule()
 
     
   this.mesPhoto=this.catalogue.getBoisson();
@@ -54,7 +55,7 @@ export class PanierComponent implements OnInit {
   //   this.menus=data.menu;
   // console.log(this.burgers);
   // })
-console.log(this.getLesTailles());
+// console.log(this.getLesTailles());
 
   }
  

@@ -17,6 +17,8 @@ export class ProduitCommandeComponent implements OnInit {
 
     onSup(element:any){
       this.serviceDetail.supprimer(element)
+      
+      // this.serviceDetail.calcule()
     // console.log(element);
     
 

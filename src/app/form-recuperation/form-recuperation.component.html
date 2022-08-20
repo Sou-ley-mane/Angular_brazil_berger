@@ -15,7 +15,7 @@
         <label class="btn btn-outline-success" for="success-outlined">Valide ma commande</label>
     </div>
 </form> -->
-<form action="">
+<form action="" [hidden]=sipascommande>
     <div class="bg-warning">
         <h3 class="text-center">Recuperation</h3>
     </div>
@@ -56,7 +56,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex justify-content-between" *ngFor="let zone of mesZones">
-                    <input #input  value="{{zone.id}}" class="  border-3 border-dark" type="radio" name="flexRadioDefault" (input)="getZoneClient(input)" />
+                    <input #input  value="{{zone.id}}" class="  border-3 border-dark" type="radio" name="flexRadioDefault" (input)="getZoneClient(input)"  (click)="prixLiv(zone.coutLivraison)" />
                     <label class="form-check-label mx-2 fw-bold" for="flexRadioDefault2">{{zone.nomZone}}</label>
                     <p class="fw-bold">{{zone.etatZone}}</p>
                     <p class="fw-bold">{{zone.coutLivraison }}<span>FCFA</span></p>  
